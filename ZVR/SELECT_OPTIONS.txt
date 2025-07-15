@@ -1,0 +1,250 @@
+REPORT zvr_select_options NO STANDARD PAGE HEADING.
+
+**************************************************************************************************
+***declarations of tables
+TABLES : vbak, likp, vbrk.
+
+***1st block with radiobutton fields
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE text-001 NO INTERVALS.
+PARAMETERS : p_sal RADIOBUTTON GROUP g1 USER-COMMAND ucomm DEFAULT 'X',
+             p_del RADIOBUTTON GROUP g1,
+             p_inv RADIOBUTTON GROUP g1.
+SELECTION-SCREEN END OF BLOCK b1.
+
+***2nd block with sales criteria
+SELECTION-SCREEN BEGIN OF BLOCK b2 WITH FRAME TITLE text-002.
+SELECT-OPTIONS : ss_vbeln FOR vbak-vbeln MODIF ID sal,
+                 ss_vbtyp FOR vbak-vbtyp NO INTERVALS MODIF ID sal,
+                 ss_kunnr FOR vbak-kunnr NO INTERVALS NO-EXTENSION MODIF ID sal.
+PARAMETERS ps_ernam TYPE vbak-ernam MODIF ID sal.
+SELECTION-SCREEN END OF BLOCK b2.
+
+***3rd block with delivery criteria
+SELECTION-SCREEN BEGIN OF BLOCK b3 WITH FRAME TITLE text-003.
+SELECT-OPTIONS : sd_vbeln FOR likp-vbeln MODIF ID del,
+                 sd_lfart FOR likp-lfart NO INTERVALS MODIF ID del,
+                 sd_kunag FOR likp-kunag NO INTERVALS NO-EXTENSION MODIF ID del.
+PARAMETERS pd_ernam TYPE likp-ernam MODIF ID del.
+SELECTION-SCREEN END OF BLOCK b3.
+
+***4th block with invoice criteria
+SELECTION-SCREEN BEGIN OF BLOCK b4 WITH FRAME TITLE text-004.
+SELECT-OPTIONS : si_vbeln FOR vbrk-vbeln MODIF ID inv,
+                 si_fkart FOR vbrk-fkart NO INTERVALS MODIF ID inv,
+                 si_kunrg FOR vbrk-kunrg NO-EXTENSION NO INTERVALS MODIF ID inv.
+PARAMETERS pi_ernam TYPE vbrk-ernam MODIF ID inv.
+SELECTION-SCREEN END OF BLOCK b4.
+
+AT SELECTION-SCREEN OUTPUT.
+  "code to modify the screen based on user action
+
+*  IF p_sal = 'X'.
+*    LOOP AT SCREEN.
+*      CASE screen-group1.
+*        WHEN 'SAL'.
+*          screen-input = '1'.
+*          screen-invisible = '0'.
+*        WHEN 'DEL'.
+*          screen-input = '0'.
+*          screen-invisible = '1'.
+*        WHEN 'INV'.
+*          screen-input = '0'.
+*          screen-invisible = '1'.
+*      ENDCASE.
+*      MODIFY SCREEN.
+*    ENDLOOP.
+*  ELSEIF p_del = 'X'.
+*    LOOP AT SCREEN.
+*      CASE screen-group1.
+*        WHEN 'SAL'.
+*          screen-input = '0'.
+*          screen-invisible = '1'.
+*        WHEN 'DEL'.
+*          screen-input = '1'.
+*          screen-invisible = '0'.
+*        WHEN 'INV'.
+*          screen-input = '0'.
+*          screen-invisible = '1'.
+*      ENDCASE.
+*      MODIFY SCREEN.
+*    ENDLOOP.
+*  ELSEIF p_inv = 'X'.
+*    LOOP AT SCREEN.
+*      CASE screen-group1.
+*        WHEN 'SAL'.
+*          screen-input = '0'.
+*          screen-invisible = '1'.
+*        WHEN 'DEL'.
+*          screen-input = '0'.
+*          screen-invisible = '1'.
+*        WHEN 'INV'.
+*          screen-input = '1'.
+*          screen-invisible = '0'.
+*      ENDCASE.
+*      MODIFY SCREEN.
+*    ENDLOOP.
+*  ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***********************************************************************************************
+*****declarations
+**TABLES kna1.
+**
+**DATA : lv_cust  TYPE c LENGTH 10,
+**       lv_wht   TYPE p DECIMALS 3,
+**       lv_ort01 TYPE c LENGTH 20.
+**
+*****sample application to design screens using select-options
+**SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE text-001.
+**SELECT-OPTIONS : s_cust FOR lv_cust NO-EXTENSION,
+**                 s_name FOR kna1-name1 NO INTERVALS,
+**                 s_wht  FOR lv_wht,
+**                 s_land1 FOR kna1-land1 DEFAULT 'IN' TO 'US',
+**                 s_ktokd FOR kna1-ktokd OBLIGATORY NO INTERVALS NO-EXTENSION,
+**                 s_ort01 FOR lv_ort01 LOWER CASE,
+**                 s_name2 FOR kna1-name2 VISIBLE LENGTH 10,
+**                 s_regio FOR kna1-regio DEFAULT 'TG' NO-DISPLAY,
+**                 s_curr  FOR kna1-uwaer,
+**                 s_adrnr FOR kna1-adrnr.
+**SELECTION-SCREEN END OF BLOCK b1.
+**
+**
+**AT SELECTION-SCREEN ON VALUE-REQUEST FOR s_curr-low.
+**  "code related to local search help (f4 help)
+**
+**AT SELECTION-SCREEN ON VALUE-REQUEST FOR s_curr-high.
+**  "code related to local search help (f4 help)
+**
+**AT SELECTION-SCREEN ON HELP-REQUEST FOR s_adrnr-low.
+**
+***WRITE :/ s_regio-low.
+***WRITE :/ s_ort01-low.
+**
+***WRITE /: s_cust-low,
+***         s_cust-high.
+***WRITE :/ s_cust.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***********************************************************************************************
+*****sample application to design screens using select-options
+***INCORRECT SYNTAX AS SELECT-OPTION DOES NOT ACCEPT FLOAT AND STRING DATA TYPES
+**DATA lv_var TYPE string.   "f.
+**SELECT-OPTIONS s_var FOR lv_var.
+
+
+
+
+
+
+
+
+
+
+
+
+
+***********************************************************************************************
+*****sample application to design screens using select-options
+***INCORRECT SYNTAX AS SELECT-OPTION DOES NOT ACCEPT MORE THAN 8 CHAR NAME
+**TABLES kna1.
+**SELECT-OPTIONS s_customer FOR kna1-kunnr.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***********************************************************************************************
+*****sample application to design screens using select-options
+**TABLES kna1.
+**SELECT-OPTIONS s_cust FOR kna1-kunnr.
+
+
+
+
+
+
+
+
+
+
+
+************************************************************************************************
+******sample application to design screens using select-options
+*DATA lv_cust TYPE kna1-kunnr.
+*SELECT-OPTIONS s_cust FOR lv_cust.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***********************************************************************************************
+*****sample application to design screens using select-options
+**DATA lv_cust TYPE c LENGTH 10.
+**SELECT-OPTIONS s_cust FOR lv_cust.
+
+*PARAMETERS p_cust TYPE i.
+*DATA lv_cust TYPE i.

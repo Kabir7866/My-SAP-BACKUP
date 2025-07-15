@@ -1,0 +1,12 @@
+REPORT zvr_test.
+
+PARAMETERS : p_cust1 TYPE c LENGTH 10,
+             p_cust2 TYPE kna1-kunnr,
+             p_land1 TYPE kna1-land1,
+             p_adhr  TYPE c LENGTH 12.
+
+AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_cust2.
+  "code related to local search help
+
+AT SELECTION-SCREEN ON HELP-REQUEST FOR p_adhr.
+  "code related to f1 help(documentation)

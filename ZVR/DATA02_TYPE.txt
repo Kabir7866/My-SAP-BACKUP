@@ -1,0 +1,85 @@
+***********************************************************************************************
+*Author: Kabir
+*clint:   Bmw
+*Manager: Saqlain
+*Dept:    SD
+*Package:  $tmp
+*TR:    -
+*Start Date: 12-7-25
+*End Date :  13-7-25
+*Purpose: Smaple applaction USing Data Type Concept
+*************************************************************************************************
+*Modified by|   Date|  Package| DESC
+***********************************************************************************************
+REPORT zvr_data02_type NO STANDARD PAGE HEADING.
+
+******declaration of variable
+DATA : lv_int  TYPE i,
+       lv_flt  TYPE f,
+       lv_pck  TYPE p DECIMALS 4,
+       lv_str  TYPE string,
+       lv_dt1  TYPE date,
+       lv_dt2  TYPE d,
+       lv_t1   TYPE time,
+       lv_t2   TYPE t,
+       lv_nch(10)  TYPE n,
+       lv_char TYPE c LENGTH 35.
+
+******assgin the value of variables
+lv_int  =  1000.
+lv_flt  =  '334.556687'.
+lv_pck  =  '123.4568'.
+lv_str  =  'Kabir'.
+lv_dt1  =  '21022025'.
+lv_dt2  =  '21022544'.
+lv_t1   =  '3231221'.
+lv_t2   =  '483423'.
+lv_nch  =  '0092932'.
+lv_char  = 'Nafisa'.
+
+**********display variables
+WRITE /:lv_int ,
+        lv_flt ,
+        lv_pck ,
+        lv_str ,
+        lv_dt1 ,
+        lv_dt2 ,
+        lv_t1  ,
+        lv_t2  ,
+        lv_nch ,
+        lv_char .
+
+
+
+
+
+
+
+
+
+
+***************************************************************************************************************
+***declartion of variables
+**data a type i.
+**data b type n.
+**data c type p Decimals 3.
+**data d type f.
+**data e type date.
+**data f type d.
+**data g type time.
+**data h type t.
+**data i type string.
+**data j type n.
+**
+**
+****display variables
+**Write a.
+**Write b.
+**Write c.
+**Write d.
+**Write e.
+**Write f.
+**Write g.
+**Write h.
+**Write i.
+**Write j.

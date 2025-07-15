@@ -1,0 +1,152 @@
+********************************************************************************************************************
+*&                    APPLICATION LOG
+********************************************************************************************************************
+*&  AUTHOR:  AHMED
+*&  CLIENT:  RELIANCE
+*&  DEPT:    SD
+*&  MANAGER: AAMIR
+*&  PACKAGE:  $TMP
+*&  TR:       -
+*&  START DATE: 11th July 2025
+*&  END DATE:   12th July 2025
+*&  PURPOSE:    Sample application using Data types concept
+*&*****************************************************************************************************************
+*&  Modified by |  DATE           |  PACKAGE                | DESC
+*&*****************************************************************************************************************
+*&
+*******************************************************************************************************************
+REPORT zvr_data_types NO STANDARD PAGE HEADING.   "This is my first ABAP application
+
+******************************************************************************************************************
+***declaration of variables
+DATA : lv_int     TYPE i,
+       lv_flt     TYPE f,
+       lv_pkd     TYPE p DECIMALS 3,
+       lv_chr     TYPE c LENGTH 35,
+       lv_nch(10) TYPE n,
+       lv_dt1     TYPE date,
+       lv_dt2     TYPE d,
+       lv_tm1     TYPE time,
+       lv_tm2     TYPE t,
+       lv_str     TYPE string,
+       lv_dummy.
+
+***assign values to data variables
+lv_int = 1000.
+lv_flt = '12.34'.
+lv_pkd = '123.4567'.
+lv_chr = 'SAQLAIN'.
+lv_nch = '12345'.
+lv_dt1 = '07072025'.
+lv_dt2 = '31122025'.
+lv_tm1 = '091015'.
+lv_tm2 = '211530'.
+lv_str = 'WELCOME TO SAP TECHNICAL WORLD'.
+
+***display variables output
+WRITE /: lv_int,
+         lv_flt,
+         lv_pkd,
+         lv_chr,
+         lv_nch,
+         lv_dt1,
+         lv_dt2,
+         lv_tm1,
+         lv_tm2,
+         lv_str.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*******************************************************************************************************************
+****declaration of variables
+*DATA : a TYPE i,
+*       b TYPE f,
+*       c TYPE p DECIMALS 3,
+*       d TYPE c,
+*       e TYPE n,
+*       f TYPE date,
+*       g TYPE d,
+*       h TYPE time,
+*       i TYPE t,
+*       j TYPE string.
+*
+****display variables output
+*WRITE : a,
+*        b,
+*        c,
+*        d,
+*        e,
+*        f,
+*        g,
+*        h,
+*        i,
+*        j.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+********************************************************************************************************************
+*****declaration of variables
+**DATA a TYPE i.
+**DATA b TYPE f.
+**DATA c TYPE p DECIMALS 3.
+**DATA d TYPE c.
+**DATA e TYPE n.
+**DATA f TYPE date.
+**DATA g TYPE d.
+**DATA h TYPE time.
+**DATA i TYPE t.
+**DATA j TYPE string.
+**
+*****display variables output
+**WRITE a.
+**WRITE b.
+**WRITE c.
+**WRITE d.
+**WRITE e.
+**WRITE f.
+**WRITE g.
+**WRITE h.
+**WRITE i.
+**WRITE j.

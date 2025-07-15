@@ -1,0 +1,40 @@
+*****************************************************************************
+*                                   applaction log
+****************************************************************************
+*Author : Kabir .
+*Client  : Tcs.
+*Manager  : Nayeem.
+*Package  :$tmp.
+*TR   : -
+*Start Date :21-07-25.
+*End Date :    22-07-25.
+*Purpose : Custmer Information Using Data Types.
+*****************************************************************************
+*  Modified by |  DATE           |  PACKAGE                | DESC
+*&*****************************************************************************************************************
+
+REPORT zvr_data01_info_parameter .
+
+*****parameter input files of customer dept
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE text-001.
+PARAMETERS: p_cid   TYPE c LENGTH 10,
+            p_name  TYPE c LENGTH 35,
+            p_mob   TYPE n LENGTH 10,
+            p_city  TYPE c LENGTH 20,
+            p_state TYPE c LENGTH 20,
+            p_cntry TYPE c LENGTH 10,
+            p_det   TYPE string.
+SELECTION-SCREEN END OF BLOCK b1 .
+*******disply customer info
+WRITE : 10 'Details of the Customer' COLOR 3.
+SKIP.
+WRITE :/ sy-uline+0(60).
+WRITE :/1 sy-vline,
+/1 sy-vline, 3 'Customer id' COLOR 2,18 sy-vline,20 p_cid ,60 sy-vline,
+/1 sy-vline, 3  'Name ' COLOR 3,18 sy-vline,20 p_name,60 sy-vline,
+/1 sy-vline, 3  'Mobile' COLOR 4,18 sy-vline,20 p_mob, 60 sy-vline,
+/1 sy-vline, 3  'City' COLOR 7,18 sy-vline,20 p_city,60 sy-vline,
+/1 sy-vline, 3  'State' COLOR 3 INVERSE ON,18 sy-vline,20 p_state,60 sy-vline,
+/1 sy-vline, 3  'Country' COLOR 6 INVERSE On , 18 sy-vline,20 p_cntry,60 sy-vline,
+/1 sy-vline, 3  'Detiles' COLOR 7 INVERSE on, 18 sy-vline, 20 p_det ,60 sy-vline.
+WRITE :/ sy-uline+0(60).

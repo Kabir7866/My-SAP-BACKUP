@@ -1,0 +1,217 @@
+********************************************************************************************************************
+*&                    APPLICATION LOG
+********************************************************************************************************************
+*&  AUTHOR:  KABIR
+*&  CLIENT:  TATA MOTERS
+*&  DEPT:    SD
+*&  MANAGER: ALI
+*&  PACKAGE:  $TMP
+*&  TR:       -
+*&  START DATE: 13th July 2025
+*&  END DATE:   13th July 2025
+*&  PURPOSE:    Customer info using Parameters KEYSWORD concept
+*&*****************************************************************************************************************
+*&  Modified by |  DATE           |  PACKAGE                | DESC
+*&*****************************************************************************************************************
+*&
+*******************************************************************************************************************
+REPORT yvr_parameters_keywords NO STANDARD PAGE HEADING.
+
+***SCREEN DESIGN
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE text-002.
+PARAMETERS : p_empid TYPE c LENGTH 10,
+             p_cpnm  TYPE c LENGTH 20 DEFAULT 'TCS',
+             p_cdet  TYPE c LENGTH 20 LOWER CASE,
+             p_eloc  TYPE c LENGTH 10 OBLIGATORY.
+SELECTION-SCREEN SKIP.
+PARAMETERS : p_loc1 AS CHECKBOX,
+             p_loc2 AS CHECKBOX,
+             p_loc3 AS CHECKBOX.
+SELECTION-SCREEN SKIP.
+PARAMETERS :p_gend1 RADIOBUTTON GROUP g2,
+            p_gend2 RADIOBUTTON GROUP g2,
+            p_gend3 RADIOBUTTON GROUP g2.
+SELECTION-SCREEN SKIP.
+PARAMETERS : p_empdt  TYPE c LENGTH 100 VISIBLE LENGTH 20,
+             p_emppin TYPE n LENGTH 10 MEMORY ID sys_123,
+             p_empst  AS LISTBOX VISIBLE LENGTH 20,
+             p_emppan TYPE c LENGTH 10,
+             p_empadh TYPE c LENGTH 12,
+             p_empuid TYPE c LENGTH 10 MATCHCODE OBJECT c_kunnr.
+
+SELECTION-SCREEN END OF BLOCK b1.
+AT SELECTION-SCREEN OUTPUT.
+
+AT SELECTION-SCREEN ON VALUE-REQUEST FOR p_emppan.
+
+AT SELECTION-SCREEN ON HELP-REQUEST FOR p_empadh.
+
+
+**********************************************************************************************
+***SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE text-003.
+*** PARAMETERS : p_stid type c LENGTH 10,
+***              p_per type p DECIMALS 2 ,
+***              p_clgnm type c LENGTH 30  DEFAULT 'Presidency University',
+***              p_from type c LENGTH 20 OBLIGATORY,
+***              p_self type c LENGTH 35 LOWER CASE.
+***SELECTION-SCREEN skip.
+***PARAMETERS : p_grp1 AS CHECKBOX ,
+***             p_grp2 AS CHECKBOX ,
+***             p_grp3 AS CHECKBOX .
+***SELECTION-SCREEN skip.
+***PARAMETERS :p_gen1 RADIOBUTTON GROUP g3,
+***           p_gen2 RADIOBUTTON GROUP g3,
+***           p_gen3 RADIOBUTTON GROUP g3.
+***
+***SELECTION-SCREEN SKIP.
+***PARAMETERS : p_fedbk type c LENGTH 100 VISIBLE LENGTH 28,
+***             p_clgpc type c LENGTH 6 MEMORY ID sys_123,
+***             p_clggrp as LISTBOX VISIBLE LENGTH 20,
+***             p_pan type c LENGTH 10,
+***             p_adhr type c LENGTH 12,
+***             p_faclt type c LENGTH 20 MATCHCODE OBJECT c_kummr.
+***
+***
+***
+***
+***SELECTION-SCREEN end of block b1.
+***
+***at SELECTION-SCREEN OUTPUT.
+***  at SELECTION-SCREEN on VALUE-REQUEST FOR p_pan.
+***    at SELECTION-SCREEN on HELP-REQUEST FOR P_adhr.
+***
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***********************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***************************************************************************************************
+********sample screen desgin using parameters
+**SELECTION-SCREEN  BEGIN OF BLOCK b1 WITH FRAME TITLE text-001.
+**PARAMETERS : p_air TYPE c LENGTH 10,
+**             p_aid TYPE n LENGTH 5,
+**             p_frm TYPE c LENGTH 15 DEFAULT 'Vijaywada',
+**             p_to  TYPE string  OBLIGATORY,
+**             p_dis TYPE i DEFAULT 5 NO-DISPLAY.
+**SELECTION-SCREEN SKIP.
+**PARAMETERS :p_tea   AS CHECKBOX,
+**            p_coffe AS CHECKBOX,
+**            p_drink AS CHECKBOX.
+**SELECTION-SCREEN SKIP.
+**PARAMETERS : p_upi  RADIOBUTTON GROUP g1,
+**             p_net  RADIOBUTTON GROUP g1,
+**             p_cash RADIOBUTTON GROUP g1.
+**SELECTION-SCREEN SKIP.
+**PARAMETERS :p_bag            TYPE c LENGTH 100 VISIBLE LENGTH 15,
+**            p_tic            TYPE c LENGTH 10 MEMORY ID  sys123,
+**            p_state          AS LISTBOX VISIBLE LENGTH 20,
+**            p_pan type c LENGTH 12,
+**            p_adhaar type n LENGTH 10,
+**            p_ppp TYPE c LENGTH 10 MATCHCODE OBJECT c_kunnr.
+**
+**SELECTION-SCREEN END OF BLOCK b1.
+** at selection-SCREEN OUTPUT.
+** at selection-screen on value-REQUEST FOR p_pan.
+** at selection-screen on help-REQUEST FOR p_adhaar.

@@ -1,0 +1,101 @@
+********************************************************************************************************************
+*&                    APPLICATION LOG
+********************************************************************************************************************
+*&  AUTHOR:  AHMED
+*&  CLIENT:  RELIANCE
+*&  DEPT:    SD
+*&  MANAGER: AAMIR
+*&  PACKAGE:  $TMP
+*&  TR:       -
+*&  START DATE: 11th July 2025
+*&  END DATE:   12th July 2025
+*&  PURPOSE:    Customer info using Parameters concept
+*&*****************************************************************************************************************
+*&  Modified by |  DATE           |  PACKAGE                | DESC
+*&*****************************************************************************************************************
+*&
+*******************************************************************************************************************
+
+REPORT zvr_cust_info_parameters NO STANDARD PAGE HEADING.
+
+*******************************************************************************************************************
+***selection screen design
+***parameter input field of customer dept variables
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE text-001.
+PARAMETERS : p_cid   TYPE c LENGTH 10 DEFAULT 'TCS1000',
+             p_name  TYPE c LENGTH 35 DEFAULT 'Mohammed Arshad',
+             p_mob   TYPE n LENGTH 10 DEFAULT '9848011111',
+             p_city  TYPE c LENGTH 35 DEFAULT 'Bodhan',
+             p_state TYPE c LENGTH 20 DEFAULT 'Telangana',
+             p_cntry TYPE c LENGTH 35 DEFAULT 'IN',
+             p_lang  TYPE c LENGTH 10 DEFAULT 'EN',
+             p_det   TYPE string DEFAULT 'Welcome to SAP World...!!!'.
+SELECTION-SCREEN END OF BLOCK b1 .
+
+***display customer info
+WRITE :/10 'Customer Information using Data types concept' COLOR 5.
+SKIP.
+WRITE :/ syst-uline+0(60).
+WRITE :/1 sy-vline,3  'Customer No' COLOR 6,18 sy-vline, 20 p_cid              COLOR 1,60 sy-vline,
+       /1 sy-vline,3  'Name'        COLOR 6,18 sy-vline, 20 p_name             COLOR 2,60 sy-vline,
+       /1 sy-vline,3  'Mobile'      COLOR 6,18 sy-vline, 20 p_mob              COLOR 3,60 sy-vline,
+       /1 sy-vline,3  'City'        COLOR 6,18 sy-vline, 20 p_city             COLOR 4,60 sy-vline,
+       /1 sy-vline,3  'State'       COLOR 6 INVERSE ON,18 sy-vline, 20 p_state COLOR 5,60 sy-vline,
+       /1 sy-vline,3  'Country'     COLOR 6 INVERSE ON,18 sy-vline, 20 p_cntry COLOR 6,60 sy-vline,
+       /1 sy-vline,3  'Language'    COLOR 6 INVERSE ON,18 sy-vline, 20 p_lang  COLOR 7,60 sy-vline,
+       /1 sy-vline,3  'Details'     COLOR 6 INVERSE ON,18 sy-vline, 20 p_det   COLOR 1,60 sy-vline.
+WRITE :/ syst-uline+0(60).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*********************************************************************************************************************
+*****declaration of customer dept variables
+**DATA : lv_cid   TYPE c LENGTH 10,
+**       lv_name  TYPE c LENGTH 35,
+**       lv_mob   TYPE n LENGTH 10,
+**       lv_city  TYPE c LENGTH 35,
+**       lv_state TYPE c LENGTH 20,
+**       lv_cntry TYPE c LENGTH 35,
+**       lv_lang  TYPE c LENGTH 10,
+**       lv_det   TYPE string.
+**
+*****assign values to customer variables
+**lv_cid   = 'TCS1000'.
+**lv_name  = 'MOHAMMED ARSHAD'.
+**lv_mob   = '9848012345'.
+**lv_city  = 'BODHAN'.
+**lv_state = 'TG'.
+**lv_cntry = 'IN'.
+**lv_lang  = 'EN'.
+**lv_det   = 'B.TECH IN EEE FROM JNTU HYDERABAD'.
+**
+*****display customer info
+**WRITE : / 'Customer No' COLOR 6,15 lv_cid              COLOR 1,
+**        / 'Name'        COLOR 6,15 lv_name             COLOR 2,
+**        / 'Mobile'      COLOR 6,15 lv_mob              COLOR 3,
+**        / 'City'        COLOR 6,15 lv_city             COLOR 4,
+**        / 'State'       COLOR 6 INVERSE ON,15 lv_state COLOR 5,
+**        / 'Country'     COLOR 6 INVERSE ON,15 lv_cntry COLOR 6,
+**        / 'Language'    COLOR 6 INVERSE ON,15 lv_lang  COLOR 7,
+**        / 'Details'     COLOR 6 INVERSE ON,15 lv_det   COLOR 1.

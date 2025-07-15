@@ -1,0 +1,115 @@
+********************************************************************************************************************
+*&                    APPLICATION LOG
+********************************************************************************************************************
+*&  AUTHOR:  Kabir
+*&  CLIENT:  RELIANCE
+*&  DEPT:    SD
+*&  MANAGER: Ahamed
+*&  PACKAGE:  $TMP
+*&  TR:       -
+*&  START DATE: 14th July 2025
+*&  END DATE:   14th July 2025
+*&  PURPOSE:  Smaple design usin Parameters to design Screen By Command and  Modif id.
+*&*****************************************************************************************************************
+*&  Modified by |  DATE           |  PACKAGE                | DESC
+*&*****************************************************************************************************************
+*&
+*******************************************************************************************************************
+*****************************************************************************************************************
+
+********************************************************
+
+***Smaple design usin Parameters to design Screen By Command and  Modif id.   ''selection-screen begin of block b1 with frame title text-001.
+******First block with Radiobutttons fiels
+REPORT yvr_sales_screem_design_par.
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE text-001 NO INTERVALS.
+PARAMETERS :p_sal RADIOBUTTON GROUP g1 USER-COMMAND sal,
+            p_del RADIOBUTTON GROUP g1,
+            p_inv RADIOBUTTON GROUP g1.
+SELECTION-SCREEN END OF BLOCK b1.
+**** 2nd block with sales critria
+SELECTION-SCREEN BEGIN OF BLOCK b2 WITH FRAME TITLE text-002.
+PARAMETERS:p_vbeln TYPE vbak-vbeln MODIF ID sal,
+           p_vbtyp TYPE vbak-vbtyp MODIF ID sal,
+           p_kunnr TYPE vbak-vbtyp MODIF ID sal.
+SELECTION-SCREEN END OF BLOCK b2.
+
+**3rd block with delivery criteria
+SELECTION-SCREEN BEGIN OF BLOCK b3 WITH FRAME TITLE text-003.
+PARAMETERS : pd_vbeln TYPE likp-vbeln MODIF ID del,
+             pd_lfart TYPE likp-lfart MODIF ID del,
+             pd_kunag TYPE likp-kunag MODIF ID del.
+SELECTION-SCREEN END OF BLOCK b3.
+**4th block with invoice criteria
+SELECTION-SCREEN BEGIN OF BLOCK b4 WITH FRAME TITLE text-004.
+PARAMETERS : pi_vbeln TYPE vbrk-vbeln MODIF ID inv,
+             pi_fkart TYPE vbrk-fkart MODIF ID inv,
+             pi_kunrg TYPE vbrk-kunrg MODIF ID inv.
+SELECTION-SCREEN END OF BLOCK b4.
+
+AT SELECTION-SCREEN OUTPUT.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*REPORT yvr_sales_screem_design_par NO STANDARD PAGE HEADING.
+*
+****************1st with Radiobuttons fileds
+*SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE text-001 NO INTERVALS.
+*PARAMETERS : p_sal RADIOBUTTON GROUP g1 user-command del,
+*             p_del RADIOBUTTON GROUP g1,
+*             p_inv RADIOBUTTON GROUP g1.
+*
+*SELECTION-SCREEN END OF BLOCK b1 .
+*
+*********2nd wit sales criteria
+*SELECTION-SCREEN BEGIN OF BLOCK b2 WITH FRAME TITLE text-002.
+*PARAMETERS : ps_kunar TYPE vbak-kunnr MODIF ID sel,
+*             ps_bukrs TYPE vbak-bukrs_vf MODIF ID sel ,
+*             ps_waerk TYPE vbak-waerk MODIF ID sel.
+*SELECTION-SCREEN END OF BLOCK b2 .
+*
+******************3rd with delivery  criteria.
+*SELECTION-SCREEN BEGIN OF BLOCK b3 WITH FRAME TITLE text-003.
+*PARAMETERS : pd_ernam TYPE likp-ernam MODIF ID del,
+*             pd_netwr TYPE likp-netwr MODIF ID del,
+*             pd_erdat TYPE likp-erdat MODIF ID del.
+*SELECTION-SCREEN END OF BLOCK b3 .
+*SELECTION-SCREEN BEGIN OF BLOCK b4 WITH FRAME TITLE text-004.
+*PARAMETERS: pi_kunnr TYPE vbrk-kunrg MODIF ID inv,
+*            pi_netwr TYPE vbrk-netwr MODIF ID inv,
+*            pi_erzet TYPE vbrk-erzet MODIF ID inv.
+*SELECTION-SCREEN END OF BLOCK b4.
+*
+*AT SELECTION-SCREEN OUTPUT.

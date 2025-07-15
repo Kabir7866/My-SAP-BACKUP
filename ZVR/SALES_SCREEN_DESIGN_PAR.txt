@@ -1,0 +1,35 @@
+REPORT zvr_sales_screen_design_par NO STANDARD PAGE HEADING.
+
+
+*************************************************************************************************
+***sample application using parameter to design screen with USER COMMAND and MODIF ID
+***1st block with radiobutton fields
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE text-001 NO INTERVALS.
+PARAMETERS : p_sal RADIOBUTTON GROUP g1 USER-COMMAND sal,
+             p_del RADIOBUTTON GROUP g1,
+             p_inv RADIOBUTTON GROUP g1.
+SELECTION-SCREEN END OF BLOCK b1.
+
+***2nd block with sales criteria
+SELECTION-SCREEN BEGIN OF BLOCK b2 WITH FRAME TITLE text-002.
+PARAMETERS : ps_vbeln TYPE vbak-vbeln MODIF ID sal,
+             ps_vbtyp TYPE vbak-vbtyp MODIF ID sal,
+             ps_kunnr TYPE vbak-kunnr MODIF ID sal.
+SELECTION-SCREEN END OF BLOCK b2.
+
+***3rd block with delivery criteria
+SELECTION-SCREEN BEGIN OF BLOCK b3 WITH FRAME TITLE text-003.
+PARAMETERS : pd_vbeln TYPE likp-vbeln MODIF ID del,
+             pd_lfart TYPE likp-lfart MODIF ID del,
+             pd_kunag TYPE likp-kunag MODIF ID del.
+SELECTION-SCREEN END OF BLOCK b3.
+
+***4th block with invoice criteria
+SELECTION-SCREEN BEGIN OF BLOCK b4 WITH FRAME TITLE text-004.
+PARAMETERS : pi_vbeln TYPE vbrk-vbeln MODIF ID inv,
+             pi_fkart TYPE vbrk-fkart MODIF ID inv,
+             pi_kunrg TYPE vbrk-kunrg MODIF ID inv.
+SELECTION-SCREEN END OF BLOCK b4.
+
+AT SELECTION-SCREEN OUTPUT.
+  "code to modify the screen based on user action

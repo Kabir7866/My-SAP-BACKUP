@@ -1,0 +1,203 @@
+*****************************************************************************
+*                                   applaction log
+****************************************************************************
+*Author : Kabir .
+*Client  : Tcs.
+*Manager  : Nayeem.
+*Package  :$tmp.
+*TR   : -
+*Start Date :21-07-25.
+*End Date :    22-07-25.
+*Purpose : Custmer Information Using Data Types.
+*****************************************************************************
+*  Modified by |  DATE           |  PACKAGE                | DESC
+*&*****************************************************************************************************************
+
+
+REPORT zvr_cust01_info_data_types NO STANDARD PAGE HEADING.
+******delcaretion variables
+DATA : lv_cid   TYPE c LENGTH 10,
+       lv_name  TYPE c LENGTH 35,
+       lv_cutry TYPE c LENGTH 35,
+       lv_city  TYPE c LENGTH 20,
+       lv_state TYPE c LENGTH 20,
+       lv_det   TYPE string.
+********assign values to variables
+lv_cid  ='Jp786'.
+lv_name ='Afreen'.
+lv_cutry ='In'.
+lv_city ='Andhra'.
+lv_state ='Vijayada'.
+lv_det  ='Welcome to SAP World'.
+
+********Display Variables
+WRITE :15 'Details of Client'.
+SKIP.
+WRITE  :/ sy-uline+0(60).
+WRITE :/1 sy-vline,3'Couster id' COLOR 2,18 sy-vline,20 lv_cid    COLOR 1,60 sy-vline ,
+       /1 sy-vline,3'Name'       COLOR 3,18 sy-vline,20 lv_name   COLOR 3,60 sy-vline ,
+       /1 sy-vline,3'Country'    COLOR 4,18 sy-vline, 20 lv_cutry COLOR 2,60 sy-vline ,
+       /1 sy-vline,3'City'       COLOR 1 inverse on,18 sy-vline, 20 lv_city   COLOR 4, 60 sy-vline ,
+       /1 sy-vline,3'State'      COLOR 6 inverse on,18 sy-vline,20 lv_state  COLOR 5, 60 sy-vline ,
+       /1 sy-vline,3'Details'    COLOR 7 inverse on ,18 sy-vline, 20 lv_det  COLOR 7, 60 sy-vline .
+WRITE  :/ sy-uline+0(60).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***************************************************************************
+**********declare variable
+**DATA : lv_cid   TYPE c LENGTH 10,
+**       lv_name  TYPE c LENGTH 35,
+**       lv_mob   TYPE n LENGTH 10,
+**       lv_city  TYPE c LENGTH 35,
+**       lv_state TYPE c LENGTH 20,
+**       lv_lang  TYPE c LENGTH 20,
+**       lv_det   TYPE string.
+**
+*************assign values to variables
+**lv_cid    =  'Tcs001'.
+**lv_name   =  'Kabir'.
+**lv_mob    =  1234567890.
+**lv_city   =  'Vijayawada'.
+**lv_state  =  'Andhra'.
+**lv_lang   =  'English'.
+**lv_det    =  'Completed IT from Presidency University'.
+**
+*******************display variables
+**Write : 10'Customer Info using Data Type Concept' color 3.
+**skip.
+**write :/ syst-uline+0(60).
+**
+**WRITE  :/1 syst-vline ,3 'Customer Id' COLOR 7,18 syst-vline, 20  lv_cid             COLOR 1, 60 syst-vline,
+**       /1 syst-vline,3 'Name'         COLOR 4, 18 syst-vline, 20 lv_name             COLOR 3, 60 syst-vline,
+**       /1 syst-vline,3 'Mobile'       COLOR 5,18 syst-vline ,20 lv_mob              COLOR 4, 60 syst-vline,
+**       /1 syst-vline,3 'City'         COLOR 4,18 syst-vline, 20 lv_city             COLOR 2, 60 syst-vline,
+**       /1 syst-vline,3 'State'        COLOR 7 INVERSE ON,18 syst-vline, 20 lv_state COLOR 5, 60 syst-vline,
+**       /1 syst-vline,3 'Laguage'      COLOR 7 INVERSE ON,18 syst-vline, 20 lv_lang  COLOR 6, 60 syst-vline.
+**write :/ syst-uline+0(60).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***************************************************************************
+**********declare variable
+**DATA : lv_cid   TYPE c LENGTH 10,
+**       lv_name  TYPE c LENGTH 35,
+**       lv_mob   TYPE n LENGTH 10,
+**       lv_city  TYPE c LENGTH 35,
+**       lv_state TYPE c LENGTH 20,
+**       lv_lang  TYPE c LENGTH 20,
+**       lv_det   TYPE string.
+**
+*************assign values to variables
+**lv_cid    =  'Tcs001'.
+**lv_name   =  'Kabir'.
+**lv_mob    =  1234567890.
+**lv_city   =  'Vijayawada'.
+**lv_state  =  'Andhra'.
+**lv_lang   =  'English'.
+**lv_det    =  'Completed IT from Presidency University'.
+**
+*******************display variables
+**Write : 10'Customer Info using Data Type Concept' color 3.
+**skip.
+**write :/ syst-uline+0(70).
+**
+**WRITE  :/'Customer Id' COLOR 7,20  lv_cid              COLOR 2,
+**       /'Name'         COLOR 4, 20 lv_name             COLOR 2,
+**       /'Mobile'       COLOR 5, 20 lv_mob              COLOR 2,
+**       /'City'         COLOR 4, 20 lv_city             COLOR 2,
+**       /'State'        COLOR 7 INVERSE ON, 20 lv_state COLOR 2,
+**       /'Laguage'      COLOR 7 INVERSE ON, 20 lv_lang  COLOR 2,
+*       /'Detiles'      COLOR 4 INVERSE ON, 20 lv_det   COLOR 2.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*******************************************************************************************
+**********declare variable
+**DATA : lv_cid   TYPE c LENGTH 10,
+**       lv_name  TYPE c LENGTH 35,
+**       lv_mob   TYPE n LENGTH 10,
+**       lv_city  TYPE c LENGTH 35,
+**       lv_state TYPE c LENGTH 20,
+**       lv_lang  TYPE c LENGTH 20,
+**       lv_det   TYPE string.
+**
+*************assign values to variables
+**lv_cid    =  'Tcs001'.
+**lv_name   =  'Kabir'.
+**lv_mob    =  1234567890.
+**lv_city   =  'Vijayawada'.
+**lv_state  =  'Andhra'.
+**lv_lang   =  'English'.
+**lv_det    =  'Completed IT from Presidency University'.
+**
+*******************display variables
+**WRITE : /'Customer Id' COLOR 7,20  lv_cid             COLOR 2,
+**       /'Name'        COLOR 4, 20 lv_name             COLOR 2,
+**       /'Mobile'      COLOR 5, 20 lv_mob              COLOR 2,
+**       /'City'        COLOR 4, 20 lv_city             COLOR 2,
+**       /'State'       COLOR 7 INVERSE ON, 20 lv_state COLOR 2,
+**       /'Laguage'     COLOR 7 INVERSE ON, 20 lv_lang  COLOR 2,
+**       /'Detiles'     COLOR 4 INVERSE ON, 20 lv_det   COLOR 2.
