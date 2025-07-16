@@ -1,0 +1,28 @@
+REPORT yvr_train_select_options.
+******sample train ticket applation using screen select options.
+*******1st radiobuttons are created
+TABLES : kna1,likp,vbak.
+***DATA : lvr_trnm TYPE n LENGTH 35  .
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE text-001.
+
+PARAMETERS : p_1ac RADIOBUTTON GROUP g1 USER-COMMAND uscmm,
+             p_2ac RADIOBUTTON GROUP g1,
+             p_3ac RADIOBUTTON GROUP g1.
+
+SELECTION-SCREEN END OF BLOCK b1 .
+
+*******2nd block
+SELECTION-SCREEN BEGIN OF BLOCK b2 WITH FRAME TITLE text-002.
+select-options : ss_ort01  for kna1-ort01 no-EXTENSION.
+PARAMETERS :ss_trnm TYPE n LENGTH 5,
+            ss_mob  TYPE n LENGTH 10 OBLIGATORY.
+SELECTION-SCREEN END OF BLOCK b2 .
+
+SELECTION-SCREEN begin of block b3 with FRAME title text-003.
+  select-OPTIONS : sd_erzet for likp-erzet no-EXTENSION.
+  PARAMETERS sd_fdlst AS LISTBOX VISIBLE LENGTH 25  DEFAULT 'Non veg'.
+
+SELECTION-SCREEN end of block b3.
+
+
+at SELECTION-SCREEN OUTPUT.

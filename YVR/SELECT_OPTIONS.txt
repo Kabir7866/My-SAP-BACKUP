@@ -1,20 +1,95 @@
-REPORT YVR_SELECT_OPTIONS.
+REPORT yvr_select_options NO STANDARD PAGE HEADING.
 
-TABLES kna1.
-data :lv_cust type c LENGTH 10,
-      lv_wht type p decimals 3.
+TABLES  : vbak, likp,vbrk.
+*******1st Radiboutton
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE text-001 NO INTERVALS.
+PARAMETERS : p_sal RADIOBUTTON GROUP  g1 USER-COMMAND  uscomm,
+             p_del RADIOBUTTON GROUP g1,
+             p_inv RADIOBUTTON GROUP g1.
+SELECTION-SCREEN END OF BLOCK b1.
+***2nd block with Sales criteria
+SELECTION-SCREEN BEGIN OF BLOCK b2 WITH FRAME TITLE text-002.
+SELECT-OPTIONS :ss_vbeln FOR vbak-vbeln MODIF ID sal,
+                ss_vbtyp FOR vbak-vbtyp NO INTERVALS MODIF ID sal,
+                ss_kunnr FOR vbak-kunnr NO INTERVALS NO-EXTENSION MODIF ID sal.
+PARAMETERS ps_ernam TYPE vbak-ernam MODIF ID sal .
+
+SELECTION-SCREEN END OF BLOCK b2.
+
+***3rd block with delivery criteria
+SELECTION-SCREEN BEGIN OF BLOCK b3 WITH FRAME TITLE text-003.
+SELECT-OPTIONS : sd_vbeln FOR likp-vbeln MODIF ID del,
+                 sd_lfart FOR likp-lfart NO INTERVALS MODIF ID del,
+                 sd_kunag FOR likp-kunag NO INTERVALS NO-EXTENSION MODIF ID del.
+PARAMETERS pd_ernam TYPE likp-ernam MODIF ID del.
+SELECTION-SCREEN END OF BLOCK b3.
+
+***4th block with invoice criteria
+SELECTION-SCREEN BEGIN OF BLOCK b4 WITH FRAME TITLE text-004.
+SELECT-OPTIONS : si_vbeln FOR vbrk-vbeln MODIF ID inv,
+                 si_fkart FOR vbrk-fkart NO INTERVALS MODIF ID inv,
+                 si_kunrg FOR vbrk-kunrg NO-EXTENSION NO INTERVALS MODIF ID inv.
+PARAMETERS pi_ernam TYPE vbrk-ernam MODIF ID inv.
+SELECTION-SCREEN END OF BLOCK b4.
+at SELECTION-SCREEN OUTPUT.
 
 
-SELECTION-SCREEN BEGIN OF block b1 with FRAME title text-001.
-  SELECT-OPTIONS :s_kunnr for kna1-kunnr,
-                  s_cust for lv_cust no-EXTENSION,
-                  s_name for kna1-name1 no intervals,
-                  s_land1 for kna1-land1 default 'In' to 'Uae',
-                  s_wht for lv_wht.
 
 
 
 
 
 
-SELECTION-SCREEN end OF block b1.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**************************************************************
+************* decleration
+***TABLES kna1 .
+***DATA :lv_cust  TYPE c LENGTH 10,
+***      lv_wht   TYPE p DECIMALS 3,
+***      lv_orto1 TYPE c LENGTH 25.
+***
+***********smaple applation of desgin screen using select-option
+***SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE text-001.
+***SELECT-OPTIONS :s_kunnr FOR kna1-kunnr,
+***                s_cust FOR lv_cust NO-EXTENSION,
+***                s_name FOR kna1-name1 NO INTERVALS,
+***                s_land1 FOR kna1-land1 DEFAULT 'In' TO 'Uae',
+***                s_wht FOR lv_wht,
+***                s_ktokd FOR kna1-ktokd  OBLIGATORY NO INTERVALS NO-EXTENSION,
+***                s_orto1 FOR lv_orto1,
+***                s_name2 FOR kna1-kunnr VISIBLE LENGTH 10,
+***                s_regio FOR kna1-regio DEFAULT 'ts',
+***                s_curr FOR kna1-uwaer,
+***                s_adrnr FOR kna1-adrnr.
+***SELECTION-SCREEN END OF BLOCK b1.
+***
+***AT SELECTION-SCREEN ON VALUE-REQUEST FOR s_curr-low.
+***
+***AT SELECTION-SCREEN ON HELP-REQUEST FOR  s_adrnr-high.
+***
+***  write :s_regio.

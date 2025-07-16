@@ -1,0 +1,451 @@
+REPORT zvr_operations NO STANDARD PAGE HEADING LINE-SIZE 250.   "1023.
+
+
+***
+********************************************************************************************************************
+******sample application using STRING OPERATIONS - REVERSE
+******declarations
+***DATA : lv_reverse    TYPE string.
+***
+******screen design
+***PARAMETERS : p_str  TYPE string.
+***
+******reverse string
+***lv_reverse = reverse( p_str ).
+***
+******display result.
+***WRITE /: p_str,
+***         lv_reverse.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*******************************************************************************************************************
+*****sample application using STRING OPERATIONS - STRLEN
+*****declarations
+**DATA : lv_str    TYPE string,
+**       lv_length TYPE i.
+**
+*****screen design
+**PARAMETERS : p_str  TYPE string.
+**
+*****string length
+**lv_length = strlen( p_str ).
+**
+*****display result.
+**WRITE :/ text-001,15 p_str,
+**       / text-002,15 lv_length.
+**
+***WRITE :/ 'Actual String:',15 p_str,
+***         'String Length:',15 lv_length.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*******************************************************************************************************************
+*****sample application using STRING OPERATIONS - SHIFT
+*****declarations
+**DATA lv_str TYPE string.
+**
+*****screen design
+**PARAMETERS : p_str  TYPE string.
+**
+*****SHIFT - to delete 1 char of string
+**lv_str = p_str.
+**DO 3 TIMES.
+**  SHIFT lv_str.
+**ENDDO.
+**
+*****display result.
+**WRITE /: p_str,
+**         lv_str,
+**         p_str+0(3).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*******************************************************************************************************************
+*****sample application using STRING OPERATIONS - CONDENSE
+*****screen design
+**PARAMETERS : p_str  TYPE string,
+**             p_str2 TYPE string.
+**
+*****CONDENSE with single space
+**CONDENSE p_str.
+**
+*****CONDENSE with single space
+**CONDENSE p_str2 NO-GAPS.
+**
+*****display result.
+**WRITE /: p_str,
+**         p_str2.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*******************************************************************************************************************
+*****sample application using STRING OPERATIONS - TRANSLATE
+*****screen design
+**PARAMETERS : p_str  TYPE string,
+**             p_str2 TYPE string.
+**
+*****Translate to Upper case
+**TRANSLATE p_str TO UPPER CASE.
+**
+*****Translate to lower case
+**TRANSLATE p_str2 TO LOWER CASE.
+**
+*****display result.
+**WRITE /: p_str,
+**         p_str2.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*******************************************************************************************************************
+*****sample application using STRING OPERATIONS - REPLACE ALL OCCURRENCES
+*****declarations
+**DATA : lv_str1 TYPE string VALUE 'ANDHRA PRADESH',
+**       lv_str2 TYPE string VALUE 'TELANGANA'.
+**
+*****screen design
+**PARAMETERS p_str TYPE string.
+**
+*****REPLACE all value with another
+**REPLACE ALL OCCURRENCES OF lv_str1 IN p_str WITH lv_str2.
+**
+*****display result.
+**WRITE :/ p_str.
+
+
+
+
+
+
+
+
+
+
+
+
+******************************************************************************************************************
+****sample application using STRING OPERATIONS - REPLACE
+****declarations
+*DATA : lv_str1 TYPE string VALUE 'ANDHRA PRADESH',
+*       lv_str2 TYPE string VALUE 'TELANGANA'.
+*
+****screen design
+*PARAMETERS p_str TYPE string.
+*
+****REPLACE 1 value with another
+*REPLACE lv_str1 WITH lv_str2 INTO p_str.
+*
+****display result.
+*WRITE :/ p_str.
+
+
+
+
+
+
+
+
+
+
+
+
+
+*******************************************************************************************************************
+*****sample application using STRING OPERATIONS - REPLACE
+*****screen design
+**PARAMETERS p_str TYPE string.
+**
+*****REPLACE 1 value with another
+**REPLACE 'TO' WITH 'INTO' INTO p_str.
+**
+*****display result.
+**WRITE :/ p_str.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*******************************************************************************************************************
+*****sample application using STRING OPERATIONS - SPLIT
+******declarations
+**DATA : lv_str1 TYPE c LENGTH 10,
+**       lv_str2 TYPE string,
+**       lv_str3 TYPE string,
+**       lv_str  TYPE string VALUE 'WELCOME TO SAP WORLD AS ABAP DEVELOPER'.
+**
+*****split main string into sub strings
+**SPLIT lv_str AT ' ' INTO lv_str1 lv_str2 lv_str3.
+**
+*****display main string
+**WRITE /: lv_str,
+**         lv_str1,
+**         lv_str2,
+**         lv_str3.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***************************************************************************************************************
+*sample application using STRING OPERATIONS - CONCATENATE
+**declarations
+DATA : lv_str1 TYPE c LENGTH 10 VALUE 'WELCOME',
+       lv_str2 TYPE string VALUE 'TO',
+       lv_str3 TYPE string VALUE 'SAP WORLD',
+       lv_str4 TYPE string VALUE 'AS ABAP DEVELOPER',
+       lv_str  TYPE string VALUE 'infosys'.
+
+*combine multiple sub strings into main string
+CONCATENATE lv_str1 lv_str2 lv_str3 lv_str4 INTO lv_str SEPARATED BY ' '.
+CONCATENATE lv_str1 lv_str2 lv_str3 lv_str4 INTO lv_str.
+
+*display main string
+WRITE :/ lv_str.
+
+
+
+
+
+
+
+
+
+
+
+
+
+*******************************************************************************************************************
+*****sample application using RELATIONAL OPERATIONS
+*****screen design
+**PARAMETERS : p_ip1 TYPE i,
+**             p_ip2 TYPE i.
+**
+*****compare 2 variables
+**IF p_ip1 EQ p_ip2.
+**  WRITE :/ p_ip1, 'EQ', p_ip2.
+**ELSE.
+**  WRITE :/ p_ip1, 'NE', p_ip2.
+**ENDIF.
+
+
+*IF p_ip1 < p_ip2.
+*  WRITE :/ p_ip1, 'is the smallet no.'.
+*ELSE.
+*  WRITE :/ 'false'.
+*ENDIF.
+
+
+**IF p_ip1 LT p_ip2.
+**  WRITE :/ p_ip1, 'is the smallet no.'.
+**ELSE.
+**  WRITE :/ 'false'.
+**ENDIF.
+
+
+**IF p_ip1 GT p_ip2.
+**  WRITE :/ p_ip1, 'is the greatest no.'.
+**ELSE.
+**  WRITE :/ 'false'.
+**ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*******************************************************************************************************************
+*****sample application using ARITHMATIC OPERATIONS
+*****declarations
+**DATA : lv_var1 TYPE i VALUE '10',
+**       lv_var2 TYPE i VALUE '20',
+**       lv_var3 TYPE i VALUE '30'.
+**
+*****sample arithmatic operations
+**lv_var1 = lv_var1 + lv_var2 + lv_var3.
+**lv_var2 = lv_var1 + lv_var2 - lv_var3.
+**lv_var3 = lv_var1 - lv_var2 + lv_var3.
+**lv_var1 = lv_var1 + lv_var2 + lv_var3.
+**
+*****display result.
+**WRITE :/ 'Variable 1:', lv_var1,
+**       / 'Variable 2:', lv_var2,
+**       / 'Variable 3:', lv_var3.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*******************************************************************************************************************
+*****sample application using ARITHMATIC OPERATIONS
+*****declarations
+**DATA : lv_add TYPE i,
+**       lv_sub TYPE i,
+**       lv_mul TYPE i,
+**       lv_div TYPE i,
+**       lv_mod TYPE i,
+**       lv_exp TYPE i.
+**
+*****screen design
+**PARAMETERS : p_ip1 TYPE i DEFAULT '10',
+**             p_ip2 TYPE i DEFAULT '3'.
+**
+*****add operation
+**lv_add  = p_ip1 + p_ip2.
+**
+*****sub operation
+**lv_sub  = p_ip1 - p_ip2.
+**
+*****mul operation
+**lv_mul  = p_ip1 * p_ip2.
+**
+*****div operation
+**lv_div  = p_ip1 / p_ip2.
+**
+*****mod operation
+**lv_mod  = p_ip1 MOD p_ip2.
+**
+*****exp operation
+**lv_exp  = p_ip1 ** p_ip2.
+**
+*****display result
+**WRITE :/ 'Addition Result:', 20 lv_add,
+**       / 'Subtract Result:', 20 lv_sub,
+**       / 'Multiply Result:', 20 lv_mul,
+**       / 'Divison Result:', 20 lv_div,
+**       / 'Modulus Result:', 20 lv_mod,
+**       / 'Exponential Result:', 20 lv_exp.

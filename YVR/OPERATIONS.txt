@@ -1,0 +1,240 @@
+********************************************************************************************************************
+*&                    APPLICATION LOG
+********************************************************************************************************************
+*&  AUTHOR:  KABIR
+*&  CLIENT:  RELIANCE
+*&  DEPT:    SD
+*&  MANAGER: AHAMED
+*&  PACKAGE:  $TMP
+*&  TR:       -
+*&  START DATE: 16th July 2025
+*&  END DATE:   16th July 2025
+*&  PURPOSE:    Sample application using  ARITHAMATIC OPERATION
+*&*****************************************************************************************************************
+*&  Modified by |  DATE           |  PACKAGE                | DESC
+*&*****************************************************************************************************************
+*&
+*******************************************************************************************************************
+
+REPORT yvr_operations NO STANDARD PAGE HEADING  LINE-SIZE 250.
+***************************************************
+*************************Sample applaction using String Operations Taranslater
+PARAMETERS : p_str type string ,
+             p_str1 type string.
+
+TRANSLATE p_str to LOWER CASE.
+
+TRANSLATE p_str1 to UPPER CASE.
+
+
+
+
+
+
+
+
+
+*****
+*************************Sample applaction using String Operations -Replace ALL OCCURRENCES OF
+*******************decleration
+**DATA : lv_str type string value 'WELCOM TO SAQ',
+**       lv_str1 type string value 'HYE DUDE'.
+**
+**PARAMETERS : p_str TYPE string.
+**
+**REPLACE ALL OCCURRENCES OF  lv_str IN  p_str WITH  lv_str1  .
+**
+**WRITE :/ p_str.
+
+
+
+
+**sample application using STRING OPERATIONS - REPLACE
+**screen design
+**PARAMETERS p_str TYPE string.
+**
+****REPLACE 1 value with another
+**REPLACE 'TO' WITH 'INTO' INTO p_str.
+**
+****display result.
+**WRITE :/ p_str.
+
+
+****************************************************************************
+***DATA : lv_str type string value 'KABIR',
+***      lv_str1 type string value 'AFREED'.
+***
+*** PARAMETERS p_str type string.
+***
+*** replace   Lv_str with   lv_str1 into p_str  .
+***
+*** WRITE /: p_str.
+
+
+
+
+
+***********************************************************************************
+***********************Sample applaction using String Operations -Split
+*****************decleration
+***DATA  : lv_str1 TYPE c LENGTH 10,
+***        lv_str2 TYPE string,
+***        lv_str3 TYPE string,
+***        lv_str  TYPE string VALUE ' Welcom to of  world SAP '.
+***
+***SPLIT : lv_str AT ' ' INTO lv_str1 lv_str2 lv_str3.
+***
+***WRITE /:  lv_str1,
+***         lv_str2,
+***         lv_str3.
+
+
+
+
+
+
+*****************Sample applaction using String Operations - Concatenation
+********Screen desgin
+**DATA : p_str1 TYPE c LENGTH 10 VALUE 'Welcome',
+**       p_str2 TYPE string  VALUE 'to the world',
+**       p_str3 TYPE string  VALUE 'of SAP',
+**       p_str  TYPE string.
+**
+************ sub string are coverting to Main string
+**CONCATENATE : p_str1 p_str2 p_str3  INTO  p_str SEPARATED BY ' '.
+****              p_str1 p_str2 p_str3  into  p_str.
+**WRITE :/ p_str.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**********************************************************************************************
+***************sample appaltion using arithamatic opertaion
+**********************************************************************************************
+***************declaration
+****DATA : lv_var1 TYPE i VALUE'20',
+****       lv_var2 TYPE i VALUE '30',
+****       lv_var3 TYPE i VALUE '40'.
+****
+************sample arithamatic operation
+****lv_var1 = lv_var1 + lv_var2 + lv_var3 .
+****lv_var2 = lv_var1 + lv_var2 - lv_var3 .
+****lv_var3 = lv_var1 + lv_var2 + lv_var3 .
+****lv_var1 = lv_var1 + lv_var2 + lv_var3 .
+****
+*********display
+****
+****WRITE : /'Variable 1' ,lv_var1,
+****        /  'Varuable 2',lv_var2,
+****         / 'Varuable 2',lv_var3.
+
+
+
+
+
+
+
+
+
+
+
+
+
+***********************A sample applaction usin Relation opertaion
+***********screen desing
+**
+**PARAMETERS :ip1 type i,
+**            ip2 type i.
+**
+**IF ip1 > ip2 .
+**  WRITE :'is Biggest Number'.
+**
+**  ELSE.
+**    WRITE :'is Smalest Number'.
+**
+**
+**ENDIF.
+
+
+**IF ip1 gt ip2 .
+**  WRITE :'is Biggest Number'.
+**
+**  ELSE.
+**    WRITE :'is Smalest Number'.
+**
+**
+**ENDIF.
+
+**********Compair variables
+***IF ip1 eq ip2.
+***  WRITE :/ ip1 , 'eq' ,ip2.
+***
+*** ELSE.
+***    write :/ ip1, 'nq' , ip2.
+***
+***ENDIF.
+
+
+******************************************sample appaltion using arithamatic opertaion
+******************************************************************************************
+***********declaration
+***DATA : lv_add TYPE i,
+***       lv_sub TYPE i,
+***       lv_mul TYPE i,
+***       lv_div TYPE  i,
+***       lv_mod TYPE  i,
+***       lv_exp TYPE  string.
+***
+*************screen selection
+***PARAMETERS : p_str  TYPE i DEFAULT '10',
+***             p_str1 TYPE i DEFAULT '20'.
+***
+*********add operation
+***lv_add = p_str + p_str1.
+***
+********* sub operation
+***lv_sub = p_str - p_str1.
+***
+*********mul operation
+***lv_mul = p_str * p_str1.
+***
+********* div operation
+***lv_div = p_str / p_str1.
+***
+*********mod operation
+***lv_mod = p_str MOD p_str1.
+***
+*********exp operation
+***lv_exp = p_str ** p_str1.
+***
+***WRITE :/ 'Addition Result:', 20 lv_add,
+***      / 'Subtract Result:', 20 lv_sub,
+***      / 'Multiply Result:', 20 lv_mul,
+***      / 'Divison Result:', 20 lv_div,
+***      / 'Modulus Result:', 20 lv_mod,
+***      / 'Exponential Result:', 20 lv_exp.

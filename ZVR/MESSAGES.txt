@@ -1,0 +1,162 @@
+REPORT zvr_messages NO STANDARD PAGE HEADING.
+
+
+****************************************************************************************************
+***sample application using MESSAGES using global messages
+*MESSAGE <msg_type><msg_id>(msg_cl).
+*MESSAGE <msg_type>000(msg_cl) WITH 'DESC'.
+*MESSAGE 'DESC' TYPE 'MSG_TYPE'.
+***screen design
+PARAMETERS : p_ip1 TYPE i,
+             p_ip2 TYPE i.
+
+***compare variables
+IF p_ip1 > p_ip2.
+  MESSAGE s001(zsd_msg_cl).
+  WRITE :/ p_ip1, ' is the greatest variable'.
+ELSE.
+  MESSAGE e000(zsd_msg_cl) WITH 'Given input fails the condition'.
+ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+******************************************************************************************************
+*****sample application using MESSAGES using global messages
+*****screen design
+**PARAMETERS : p_ip1 TYPE i,
+**             p_ip2 TYPE i.
+**
+*****compare variables
+**IF p_ip1 > p_ip2.
+**  MESSAGE s001(zsd_msg_cl).
+**  WRITE :/ p_ip1, ' is the greatest variable'.
+**ELSE.
+**  MESSAGE e002(zsd_msg_cl).
+**ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+******************************************************************************************************
+*****sample application using MESSAGES using global messages
+*****screen design
+**PARAMETERS : p_ip1 TYPE i,
+**             p_ip2 TYPE i.
+**
+*****compare variables
+**IF p_ip1 > p_ip2.
+**  MESSAGE i001(zsd_msg_cl).
+**  WRITE :/ p_ip1, ' is the greatest variable'.
+**ELSE.
+**  MESSAGE a002(zsd_msg_cl).
+**ENDIF.
+**
+
+
+
+
+
+
+
+
+
+
+
+
+******************************************************************************************************
+*****sample application using MESSAGES IN STATUS BAR
+*****screen design
+**PARAMETERS : p_ip1 TYPE i,
+**             p_ip2 TYPE i.
+**
+*****compare variables
+**IF p_ip1 > p_ip2.
+**  MESSAGE 'First variable is greatest number' TYPE 'S'.
+**  WRITE :/ p_ip1, ' is the greatest variable'.
+**ELSE.
+**  MESSAGE 'False' TYPE 'X'.
+**ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+******************************************************************************************************
+*****sample application using MESSAGES IN STATUS BAR
+*****screen design
+**PARAMETERS : p_ip1 TYPE i,
+**             p_ip2 TYPE i.
+**
+*****compare variables
+**IF p_ip1 > p_ip2.
+**  MESSAGE 'First variable is greatest number' TYPE 'S'.
+**  WRITE :/ p_ip1, ' is the greatest variable'.
+**ELSE.
+**  MESSAGE 'False' TYPE 'E'. "'W'.
+**  WRITE:/ 'FALSE'.
+**ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+******************************************************************************************************
+*****sample application using MESSAGES IN DIALOG BOX
+*****screen design
+**PARAMETERS : p_ip1 TYPE i,
+**             p_ip2 TYPE i.
+**
+*****compare variables
+**IF p_ip1 > p_ip2.
+**  MESSAGE 'First variable is greatest number' TYPE 'I'.
+**  WRITE :/ p_ip1, ' is the greatest variable'.
+**ELSE.
+**  MESSAGE 'False' TYPE 'A'.
+**ENDIF.
