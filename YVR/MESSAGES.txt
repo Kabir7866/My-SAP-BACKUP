@@ -1,0 +1,140 @@
+
+
+
+REPORT yvr_messages NO STANDARD PAGE HEADING.
+
+**********************A sample applaction using Messages -Global message
+*****MESSAGE 'desc' type ' MSG TYPE'
+******Message <msg_type><msg id><msg cls>
+******Message <msg_type><msg id><msg cls> with 'Desc'
+
+********** *********Delceration
+PARAMETERS : p_str TYPE i,
+             p_str1 TYPE i.
+
+IF p_str eq p_str1.
+   message i001(ysd_msg_c2) WITH 'Equals number'.
+   ELSE.
+     MESSAGE a002(ysd_msg_c2) WITH 'No Equal bumber'.
+
+ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**********************A sample applaction using Messages -Global message
+*******************Delceration.
+***PARAMETERS : p_str type i,
+***             p_str1 type i.
+***
+***IF  p_str > p_str1 .
+***   MESSAGE s001(ysd_msd_c1).
+***else.
+***  MESSAGE  w002(ysd_msd_c1).
+***
+***ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*******************A sample applaction using Messages -Global message
+****************Delceration.
+***PARAMETERS : p_str type i,
+***             p_str1 type i.
+***
+*******compare variable
+***IF p_str < p_str1.
+***   MESSAGE i001(ysd_msg_c1).
+***   write : / p_str , 'smaller num'.
+***   else.
+***     MESSAGE a002(ysd_msg_c1).
+***ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**************************************************************************
+***************A sample applaction using Messages -Statu bar
+************Delceration
+**PARAMETERS : p_str type i,
+**             p_str1 type i.
+**
+*******comapare variable
+**
+**IF p_str < p_str1.
+**    MESSAGE 'It lessre number' type 'S'.
+**    write :/ 'Lessre num' .
+**
+**    else.
+**      MESSAGE 'fasle' type 'X' ." W "E.
+**ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***********************************************************************
+************A sample applaction using Messages -Dailogbox
+*********Delceration
+**PARAMETERS : p_str type i,
+**             p_str1 type i.
+**
+**IF p_str > p_str1.
+**   MESSAGE ' First variable is Grater ' type 'I'.
+**   write: / p_str , 'Gratest number'.
+**   else.
+**    message  'Error' type 'A'.
+**ENDIF.

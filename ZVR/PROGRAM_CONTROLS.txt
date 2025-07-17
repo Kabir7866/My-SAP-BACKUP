@@ -1,0 +1,477 @@
+REPORT zvr_program_controls NO STANDARD PAGE HEADING.
+
+
+**********************************************************************************************************
+*****sample application using program controls - LOOPING TECHNIQUES - UNCONDITIONAL LOOP WITH TRIANGLE
+***declarations
+DATA : lv_res TYPE i,
+       lv_ind TYPE sy-index.
+
+***screen design
+PARAMETERS : p_iter TYPE i OBLIGATORY.
+
+***display 5 table
+DO p_iter TIMES.
+  lv_ind = sy-index.
+  DO sy-index TIMES.
+    WRITE : lv_ind.
+  ENDDO.
+  WRITE :/.
+ENDDO.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+************************************************************************************************************
+*******sample application using program controls - LOOPING TECHNIQUES - UNCONDITIONAL LOOP WITH TRIANGLE
+*****declarations
+**DATA : lv_res TYPE i.
+**
+*****screen design
+**PARAMETERS : p_iter TYPE i OBLIGATORY.
+**
+*****display 5 table
+**DO p_iter TIMES.
+**  DO sy-index TIMES.
+**    WRITE : '*'.
+**  ENDDO.
+**  WRITE :/.
+**ENDDO.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+************************************************************************************************************
+*******sample application using program controls - LOOPING TECHNIQUES - UNCONDITIONAL LOOP WITH TRIANGLE
+*****declarations
+**DATA : lv_res TYPE i.
+**
+*****screen design
+**PARAMETERS : p_iter TYPE i OBLIGATORY.
+**
+*****display 5 table
+**DO p_iter TIMES.
+**  IF sy-index = 1.
+**    WRITE :/ sy-index.
+**  ELSE.
+**    DO sy-index TIMES.
+**      WRITE : sy-index.
+**    ENDDO.
+**  ENDIF.
+**  WRITE :/.
+**ENDDO.
+
+
+
+
+
+
+
+
+
+
+************************************************************************************************************
+*******sample application using program controls - LOOPING TECHNIQUES - UNCONDITIONAL LOOP WITH TABLE
+*****declarations
+**DATA : lv_res TYPE i.
+**
+*****screen design
+**PARAMETERS : p_tab  TYPE i OBLIGATORY,
+**             p_iter TYPE i OBLIGATORY.
+**
+*****display 5 table
+**DO p_iter TIMES.                      "10 TIMES.
+**  lv_res = p_tab * sy-index.
+**  WRITE :/ p_tab, '*', sy-index, '=', lv_res.
+**ENDDO.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+************************************************************************************************************
+*******sample application using program controls - LOOPING TECHNIQUES - UNCONDITIONAL LOOP WITH TABLE
+*****declarations
+**DATA : lv_tab TYPE i VALUE '5',
+**       lv_res TYPE i.
+**
+*****display 5 table
+**DO 10 TIMES.
+**  lv_res = lv_tab * sy-index.
+**  WRITE :/ lv_tab, '*', sy-index, '=', lv_res.
+**ENDDO.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+************************************************************************************************************
+*******sample application using program controls - LOOPING TECHNIQUES - UNCONDITIONAL LOOP WITH TABLE
+*****declarations
+**DATA : lv_tab  TYPE i VALUE '5',
+**       lv_iter TYPE i VALUE '1',
+**       lv_res  TYPE i.
+**
+*****display 5 table
+**DO 10 TIMES.
+**  lv_res = lv_tab * lv_iter.
+**  WRITE :/ lv_tab, '*', lv_iter, '=', lv_res.
+**  lv_iter = lv_iter + 1.
+**ENDDO.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**********************************************************************************************************
+*****sample application using program controls - LOOPING TECHNIQUES - UNCONDITIONAL LOOP
+*****screen design
+**PARAMETERS p_iter TYPE i.
+**
+*****unconditional loop
+**DO p_iter TIMES.
+**  CASE sy-index.
+**    WHEN 1.
+**      WRITE:/ 'ACCENTURE INDIA LIMITED'.
+**    WHEN 2.
+**      WRITE :/ 'Suite#2, Cyber Gateway, HiTech City'.
+**    WHEN 3.
+**      WRITE :/ 'Hyderabad - 500071, Telanaga, India'.
+**    WHEN 4.
+**      WRITE :/ 'URL: https://www.accenture.india.com'.
+**    WHEN 5.
+**      WRITE :/ 'Email: info@accentureindia.com, Mobile: 040 - 5555 6666',/.
+**    WHEN OTHERS.
+**      WRITE :'*'.
+**      IF sy-index GT 10.
+**        EXIT.
+**      ENDIF.
+**  ENDCASE.
+**ENDDO.
+
+
+
+
+
+
+**********************************************************************************************************
+*****sample application using program controls - LOOPING TECHNIQUES - UNCONDITIONAL LOOP
+*****screen design
+**PARAMETERS p_iter TYPE i.
+**
+*****unconditional loop
+**DO p_iter TIMES.
+**  WRITE :/ sy-index, 'Welcome to SAP World'.
+**ENDDO.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**********************************************************************************************************
+*****sample application using program controls - LOOPING TECHNIQUES - UNCONDITIONAL LOOP
+*****screen design
+**DO 10 TIMES.
+**  WRITE :/ 'Welcome to SAP World'.
+**ENDDO.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**********************************************************************************************************
+*****sample application using program controls - BRANCHING TECHNIQUES - CASE STATEMENT
+*****screen design
+**PARAMETERS : p_dept TYPE c LENGTH 15 LOWER CASE OBLIGATORY.
+**
+*****department
+**CASE p_dept.
+**  WHEN  'ABAP'.
+**    WRITE :/ ' I am a SAP Technical Consultant'.
+**  WHEN  'SD'.
+**    WRITE :/ ' I am a SAP SD Functional Consultant'.
+**  WHEN  'FiCo'.
+**    WRITE :/ ' I am a SAP Finance Advisor'.
+**  WHEN  'Basis'.
+**    WRITE :/ ' I am a SAP System Admin.'.
+**  WHEN  'Security'.
+**    WRITE :/ ' I am a SAP Security/GRC Consultant'.
+**  WHEN  'HR'.
+**    WRITE :/ ' I am a SAP HR Admin.'.
+**  WHEN OTHERS.
+**    WRITE :/ ' I am a not SAP Consultant' COLOR 6.
+**ENDCASE.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**********************************************************************************************************
+*****sample application using program controls - BRANCHING TECHNIQUES - IF...ELSEIF....ENDI
+*****screen design
+**PARAMETERS : p_dept TYPE c LENGTH 15 LOWER CASE OBLIGATORY.
+**
+*****department
+**IF p_dept = 'ABAP'.
+**  WRITE :/ ' I am a SAP Technical Consultant'.
+**ELSEIF p_dept = 'SD'.
+**  WRITE :/ ' I am a SAP SD Functional Consultant'.
+**ELSEIF p_dept = 'FiCo'.
+**  WRITE :/ ' I am a SAP Finance Advisor'.
+**ELSEIF p_dept = 'Basis'.
+**  WRITE :/ ' I am a SAP System Admin.'.
+**ELSEIF p_dept = 'Security'.
+**  WRITE :/ ' I am a SAP Security/GRC Consultant'.
+**ELSEIF p_dept = 'HR'.
+**  WRITE :/ ' I am a SAP HR Admin.'.
+**ELSE.
+**  WRITE :/ ' I am a not SAP Consultant' COLOR 6.
+**ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**********************************************************************************************************
+*****sample application using program controls - BRANCHING TECHNIQUES - NESTEDIF
+*****screen design
+**PARAMETERS : p_ip1 TYPE i,
+**             p_ip2 TYPE i,
+**             p_ip3 TYPE i.
+**
+*****display given inputs
+**WRITE /: p_ip1, p_ip2, p_ip3.
+**SKIP.
+**
+*****compare variables using nestedif
+**IF ( p_ip1 NE p_ip2 ) AND ( p_ip2 NE p_ip3 ) AND ( p_ip1 NE p_ip3 ).
+**  IF p_ip1 GT p_ip2.
+**    IF p_ip1 GT p_ip3.
+**      WRITE :/ p_ip1, 'is the greatest no.'.
+**    ELSE.
+**      WRITE :/ p_ip3, 'is the greatest no.'.
+**    ENDIF.
+**  ELSE.
+**    IF p_ip2 GT p_ip3.
+**      WRITE :/ p_ip2, 'is the greatest no.'.
+**    ELSE.
+**      WRITE :/ p_ip3, 'is the greatest no.'.
+**    ENDIF.
+**  ENDIF.
+**ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**********************************************************************************************************
+*****sample application using program controls - BRANCHING TECHNIQUES - IF...END...ENDIF
+*****screen design
+**PARAMETERS : p_sal AS CHECKBOX.
+**
+**IF p_sal = 'X'.
+**  WRITE :/ 'I am a SAP Technical consultant for SD department' COLOR 5.
+**ELSE.
+**  WRITE :/ 'I am not SAP Technical consultant for SD department' COLOR 6.
+**ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**********************************************************************************************************
+*****sample application using program controls - BRANCHING TECHNIQUES - IF...ENDIF
+*****screen design
+**PARAMETERS : p_sal AS CHECKBOX.
+**
+**IF p_sal = 'X'.
+**  WRITE :/ 'I am a SAP Technical consultant for SD department'.
+***  WRITE :/ 'I am a SAP Technical consultant for SD department'.
+***  WRITE :/ 'I am a SAP Technical consultant for SD department'.
+***  WRITE :/ 'I am a SAP Technical consultant for SD department'.
+***  WRITE :/ 'I am a SAP Technical consultant for SD department'.
+**ENDIF.

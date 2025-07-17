@@ -17,14 +17,183 @@
 *******************************************************************************************************************
 
 REPORT yvr_operations NO STANDARD PAGE HEADING  LINE-SIZE 250.
-***************************************************
-*************************Sample applaction using String Operations Taranslater
-PARAMETERS : p_str type string ,
-             p_str1 type string.
 
-TRANSLATE p_str to LOWER CASE.
 
-TRANSLATE p_str1 to UPPER CASE.
+************strlen
+***DATA : lv_str1 type string,
+***        lv_str type i.
+***
+***PARAMETERS :
+***            p_str type string.
+***
+***lv_str1 = strlen( p_str ).
+***
+***WRITE :/ lv_str1 ,
+***       / p_str.
+
+
+********** shift*
+***DATA : lv_str1 TYPE string.
+***
+***PARAMETERS : p_str TYPE string.
+***
+***lv_str1 = p_str.
+***DO  2 TIMES.
+***  SHIFT lv_str1.
+***
+***ENDDO.
+***.
+***
+***WRITE :/ p_str,
+***       / lv_str1.
+
+*********condence
+PARAMETERS :p_str TYPE string,
+            p_str1 TYPE string.
+
+CONDENSE p_str .
+CONDENSE p_str1 NO-GAPS.
+*WRITE:/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****************************
+**********reverse
+*****data lv_str type  string.
+*****
+*****PARAMETERS p_str type string.
+*****
+*****lv_str = reverse( p_str ).
+*****
+*****WRITE :/ p_str ,
+*****      / lv_str.
+
+
+
+
+
+
+
+
+
+
+****data lv_str type string.
+****
+****PARAMETERS : p_str type string.
+****
+****lv_str = reverse( p_str ) .
+****
+****WRITE :/ p_str, / lv_str .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***********************************************************
+
+*****************************************************
+******************************Sample applaction using String Operations shit
+***DATA :lv_str TYPE string  VALUE 'Kabir'.
+***
+***PARAMETERS :  p_str TYPE string .
+
+***********************************************************
+*********************************Sample applaction using String Operations strlen
+***
+***data : lv_str type c LENGTH 20,
+***       lv_len type i.
+***
+***PARAMETERS p_str type string.
+*** lv_len = strlen( p_str ).
+***
+***WRITE : / p_str,
+***        / lv_len.
+
+
+
+
+
+
+
+
+
+
+
+*************shit is used to delect 1 char
+**SHIFT lv_str.
+**
+****lv_str = p_str.
+*****DO 3 TIMES.
+***** SHIFT lv_str.
+*****ENDDO.
+*****
+**write :/ lv_str.
+*****       / p_str,
+*****       / p_str+0(3).
+
+
+
+
+
+
+
+
+
+
+
+********************************************************
+******************************Sample applaction using String Operations CONDENSE
+***
+***PARAMETERS :p_str type string,
+***            p_str1 type string .
+***
+***CONDENSE p_str.
+***
+***CONDENSE p_str1 NO-GAPS.
+***
+***WRITE : / p_str,/ p_str1.
+
+
+
+
+
+
+
+
+
+*****************************************************
+***************************Sample applaction using String Operations Taranslater
+**PARAMETERS : p_str type string ,
+**             p_str1 type string.
+**
+**TRANSLATE p_str to LOWER CASE.
+**
+**TRANSLATE p_str1 to UPPER CASE.
+**
+**write : p_str , p_str1.
 
 
 

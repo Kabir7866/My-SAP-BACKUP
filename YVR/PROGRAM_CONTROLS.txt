@@ -1,0 +1,294 @@
+REPORT yvr_program_controls NO STANDARD PAGE HEADING.
+
+
+*******************************************************************
+**********sample application using program controls - LOOPING TECHNIQUES - UNCONDITIONAL LOOP WITH UNCONDATIONAL
+********declarations
+****DATA : l_res TYPE i.
+****
+****PARAMETERS p_iter TYPE i
+**** OBLIGATORY.
+****
+****DO p_iter TIMES.
+****"""  IF sy-index = 1.
+****"""  WRITE :/ sy-index.
+****
+**** ""ELSE.
+****    DO sy-index TIMES.
+****      WRITE : sy-index.
+****    ENDDO.
+**** """ ENDIF.
+****  WRITE :/.
+****ENDDO.
+
+     """"OR""""""""
+ data lv_res type i.
+
+ PARAMETERS p_iter TYPE i.
+
+ DO p_iter TIMES.
+   DO sy-index TIMES.
+     WRITE : '*'.
+
+   ENDDO.
+  WRITE :/.
+ ENDDO.
+
+
+
+
+*******************************************************************
+**********sample application using program controls - LOOPING TECHNIQUES - UNCONDITIONAL LOOP WITH UNCONDATIONAL
+********declarations
+****data : l_res type i.
+****
+****PARAMETERS : p_tab type i OBLIGATORY,
+****             p_iter type i OBLIGATORY.
+****DO p_iter TIMES.
+****   l_res = p_tab * sy-index.
+****   WRITE :/ p_tab , '*' , sy-index, '=' , l_res.
+****
+****ENDDO.
+
+
+
+
+
+
+
+
+
+************************************************************************************************
+***********************sample application using program controls - LOOPIN TECHNIQUES - UNCONDITINAL .
+**********************screen design
+**DATA: l_tab  TYPE i VALUE '5',
+**      l_iter TYPE i VALUE '1',
+**      l_res  TYPE i.
+**DO 10 TIMES.
+**  l_res = l_tab * l_iter.
+**  WRITE :/ l_tab ,'*', l_iter ,'=', l_res.
+*  l_iter =  l_iter + 1.
+*ENDDO.
+
+
+**********************************************************************************************
+*********************sample application using program controls - LOOPIN TECHNIQUES - UNCONDITINAL .
+********************screen design
+*****PARAMETERS p_iter TYPE i.
+*****DO p_iter TIMES.
+*****  CASE sy-index.
+*****    WHEN 1.
+*****      WRITE :/ 'TCS '.
+*****    WHEN 2 .
+*****      WRITE :/ 'Infosys'.
+*****    WHEN 3.
+*****      WRITE :/ 'Tech Mahindra',/.
+*****     WHEN OTHERS.
+*****      WRITE :'*'.
+*****      IF sy-index > 10.
+*****        EXIT.
+*****
+*****      ENDIF.
+*****
+*****  ENDCASE.
+*****ENDDO.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*****************************************************************************************
+****************sample application using program controls - LOOPIN TECHNIQUES - UNCONDITINAL .
+***************screen design
+****PARAMETERS p_itr type c LENGTH 10.
+****
+****DO p_itr TIMES.
+****   WRITE  :/ sy-index, 'Welcome to SAP World'.
+****ENDDO.
+
+
+
+
+**************sample application using program controls - LOOPIN TECHNIQUES - UNCONDITINAL .
+*************screen design
+****
+****DO 10 TIMES.
+****   WRITE  :/ 'Welcome to SAP World'.
+****ENDDO.
+
+
+
+
+
+
+************sample application using program controls - BRANCHING TECHNIQUES - CASE STATEMENTS.
+***********screen design
+***PARAMETERS : p_dept TYPE c LENGTH 20  LOWER CASE .
+***
+***CASE p_dept.
+***  WHEN 'AP'.
+***    WRITE 'Andhar Pradash'.
+***  WHEN 'TS' .
+***    WRITE 'Telangan'.
+***  WHEN  'UP'.
+***    WRITE 'Utter Pradesh'.
+***  WHEN OTHERS.
+***    WRITE 'No Prsent'.
+***ENDCASE.
+
+
+
+*********sample application using program controls - BRANCHING TECHNIQUES - IF...ELSEIF....ENDI
+********screen design
+***
+***PARAMETERS : p_dept TYPE c LENGTH 20  LOWER CASE .
+***
+***IF p_dept = 'AP'.
+***  WRITE 'Andhar Pradash'.
+***ELSEIF p_dept = 'TS'.
+***  WRITE 'Telangana'.
+***ELSEIF p_dept = 'GO'.
+***  WRITE 'Goa'.
+***ELSEIF p_dept = 'UP'.
+***  WRITE 'Utter Pradash'.
+***
+***
+***ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**************************************************************
+*************************A Sample program using program controls - IF...ELSE....Endif
+*************Screen desgin
+*PARAMETERS : p_st1 TYPE i,
+*             p_st2 TYPE i,
+*             p_st3 TYPE i.
+*
+*******display
+*WRITE :/ p_st1 , p_st2 ,p_st3.
+*SKIP.
+*
+**********logic
+*IF ( p_st1 NE p_st2 ) AND ( p_st2 NE p_st3 ) AND ( p_st1 NE p_st3 ).
+*
+*  IF  p_st1 GT p_st2 .
+*    IF p_st1 GT p_st3 .
+*      WRITE:/ p_st1 ,'Gratest Noo'.
+*    ELSE.
+*      WRITE :/ p_st3 , 'Gratest Noo'.
+*    ENDIF.
+*  ELSE.
+*    IF  p_st2 GT p_st3 .
+*      WRITE :/ p_st2 ,'Gratest Noo'.
+*    ELSE.
+*      WRITE:/ p_st3, 'Gratest Noo'.
+*    ENDIF.
+*
+*  ENDIF.
+*ENDIF.
+
+****PARAMETERS : p_str1 TYPE i,
+****             p_str2 TYPE i,
+****             p_str3 TYPE i.
+****
+****WRITE :/ p_str1,
+****         p_str2,
+****         p_str3.
+****
+****IF ( p_str1 NE p_str2 ) AND ( p_str2 NE p_str3 ) AND ( p_str1 NE p_str3 ).
+****  IF p_str1 GT p_str2.
+****    IF p_str1 GT p_str3.
+****      WRITE :/ p_str1 , 'Gratest noo'.
+****    ELSE.
+****      WRITE :/ p_str3 , 'Gratest noo'.
+****    ENDIF.
+****  ELSE.
+****    IF p_str2 GT p_str3.
+****      WRITE :/ p_str2 , 'Gratest noo'.
+****    ELSE.
+****      WRITE :/ p_str3 , 'Gratest noo'.
+****    ENDIF.
+****
+****  ENDIF.
+****
+****ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+*************************************************************
+************************A Sample program using program controls - IF...ELSE....Endif
+************Screen desgin
+****PARAMETERS p_st AS CHECKBOX.
+****
+****IF p_st = 'X'.               .
+****  WRITE  /'Wlecom to SAP World' COLOR 5.
+****  ELSE.
+****
+****  WRITE  /  ' Not Wlecom to SAP World' color 6.
+****
+****ENDIF.
+
+
+
+
+
+
+**************************************************************
+*************************A Sample program using program controls - if....Endif
+*************Screen desgin
+****PARAMETERS p_st AS CHECKBOX.
+****
+****IF p_st = 'X'.               .
+****  WRITE  /'Wlecom to SAP World'.
+****  WRITE  /  'Wlecom to SAP World'.
+****  WRITE  / 'Wlecom to SAP World'.
+****  WRITE  / 'Wlecom to SAP World'.
+****  WRITE  / 'Wlecom to SAP World'.
+****  WRITE  / 'Wlecom to SAP World'.
+****
+****ENDIF.
