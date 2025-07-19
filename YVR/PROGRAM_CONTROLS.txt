@@ -1,5 +1,109 @@
 REPORT yvr_program_controls NO STANDARD PAGE HEADING.
 
+*********sample application using program controls - LOOPING TECHNIQUES - UNCONDITIONAL LOOP WITH TRIANGLE
+************declarations
+****
+****data : lv_res type i,
+****       lv_ip type  i.
+****PARAMETERS p_iter  type i OBLIGATORY.
+****DO ( p_iter - sy-index ) TIMES.
+****  WRITE ' '.
+****ENDDO.
+****DO sy-index TIMES.
+****
+****ENDDO.
+
+
+*****sample application using program controls - LOOPING TECHNIQUES - UNCONDITIONAL LOOP WITH TRIANGLE
+***declarations
+***DATA: l_res TYPE i ,
+***      l_len TYPE sy-index.
+***PARAMETERS p_iter TYPE i .
+***DO p_iter TIMES.
+***  l_len = sy-index.
+***  DO sy-index TIMES.
+***     write : l_len.
+***  ENDDO.
+***  write :/.
+***ENDDO.
+
+
+**** data : l_res type i,
+****        l_ip type i.
+****
+**** PARAMETERS      p_num type i.
+****l_ip = p_num.
+****DO p_num TIMES.
+****   DO sy-index TIMES.
+****     l_res = l_ip - sy-index + 1.
+****     write : l_res .
+****   ENDDO.
+****   WRITE /:.
+****
+****ENDDO.
+
+****DATA lv_res type i.
+****""DATA lv_num type i.
+****
+****PARAMETERS p_iter type i.
+****
+****DO p_iter TIMES.
+****  DO sy-index TIMES.
+****    write : sy-index.
+****
+****  ENDDO.
+****
+****  WRITE :/.
+****
+****ENDDO.
+
+
+**DATA lv_res type i.
+**DATA lv_num type i.
+**
+**PARAMETERS p_iter type i.
+**
+**DO p_iter TIMES.
+**  lV_num = p_iter.
+**  DO sy-index TIMES.
+**    lv_res = lv_num - sy-index + 1.
+**  write :lv_res.
+**  ENDDO.
+**
+**  WRITE :/.
+**
+**ENDDO.
+
+
+**data lv_res type i.
+**
+**PARAMETERS p_iter  type i.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 *******************************************************************
 **********sample application using program controls - LOOPING TECHNIQUES - UNCONDITIONAL LOOP WITH UNCONDATIONAL
@@ -21,18 +125,30 @@ REPORT yvr_program_controls NO STANDARD PAGE HEADING.
 ****  WRITE :/.
 ****ENDDO.
 
-     """"OR""""""""
- data lv_res type i.
+***     """"OR""""""""
+*** data lv_res type i.
+***
+*** PARAMETERS p_iter TYPE i.
+***
+*** DO p_iter TIMES.
+***   DO sy-index TIMES.
+***     WRITE : sy-index.
+***
+***   ENDDO.
+***  WRITE :/.
+*** ENDDO.
 
- PARAMETERS p_iter TYPE i.
 
- DO p_iter TIMES.
-   DO sy-index TIMES.
-     WRITE : '*'.
-
-   ENDDO.
-  WRITE :/.
- ENDDO.
+***DATA l_res TYPE i.
+***
+***PARAMETERS p_iter TYPE i.
+***
+***DO p_iter TIMES.
+***   DO sy-index  TIMES.
+***     write '*'.
+***   ENDDO.
+***write :/.
+***ENDDO.
 
 
 

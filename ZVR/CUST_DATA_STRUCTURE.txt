@@ -1,0 +1,457 @@
+REPORT zvr_cust_data_structure NO STANDARD PAGE HEADING.
+
+
+******************************************************************************************************************
+***sample application using Looping technique and Data structure concept with customer data
+***declarations
+DATA : BEGIN OF wa_kna1,
+         kunnr TYPE kna1-kunnr,
+         name1 TYPE kna1-name1,
+         telf1 TYPE kna1-telf1,
+         ort01 TYPE kna1-ort01,
+         regio TYPE kna1-regio,
+         stras TYPE kna1-stras,
+         pstlz TYPE kna1-pstlz,
+         land1 TYPE kna1-land1,
+         spras TYPE kna1-spras,
+         uwaer TYPE kna1-uwaer,
+         ktokd TYPE kna1-ktokd,
+       END OF wa_kna1,
+       it_kna1 LIKE TABLE OF wa_kna1,
+       lv_rec  TYPE i.
+
+***screen design
+SELECT-OPTIONS : s_kunnr FOR wa_kna1-kunnr,
+                 s_land1 FOR wa_kna1-land1 NO INTERVALS,
+                 s_ktokd FOR wa_kna1-ktokd NO INTERVALS NO-EXTENSION.
+
+***fetch customer data from database table
+SELECT kunnr
+       name1
+       telf1
+       stras
+       pstlz
+       ort01
+       regio
+       land1
+       spras
+       uwaer
+       ktokd FROM kna1
+             INTO CORRESPONDING FIELDS OF TABLE it_kna1
+             WHERE kunnr IN s_kunnr
+             AND   land1 IN s_land1
+             AND   ktokd IN s_ktokd.
+IF sy-subrc = 0.
+
+***check no. of records
+  DESCRIBE TABLE it_kna1 LINES lv_rec.
+
+***provide column heading
+  WRITE :/1 'Customer No.'  COLOR 5,
+         15 'Name'          COLOR 5,
+         40 'Telephone'     COLOR 5,
+         55 'City'          COLOR 5,
+         75 'State'         COLOR 5,
+         85 'Street & H.No' COLOR 5,
+        115 'PCode'         COLOR 5,
+        125 'Country'       COLOR 5,
+        135 'Language'      COLOR 5,
+        150 'Currency'      COLOR 5,
+        160 'Account Group' COLOR 5.
+  SKIP.
+
+***display customer info
+  LOOP AT it_kna1 INTO wa_kna1.
+    WRITE :/ wa_kna1-kunnr UNDER 'Customer No.'  ,
+             wa_kna1-name1 UNDER 'Name'          ,
+             wa_kna1-telf1 UNDER 'Telephone'     ,
+             wa_kna1-ort01 UNDER 'City'          ,
+             wa_kna1-regio UNDER 'State'         ,
+             wa_kna1-stras UNDER 'Street & H.No' ,
+             wa_kna1-pstlz UNDER 'PCode'         ,
+             wa_kna1-land1 UNDER 'Country'       ,
+             wa_kna1-spras UNDER 'Language'      ,
+             wa_kna1-uwaer UNDER 'Currency'      ,
+             wa_kna1-ktokd UNDER 'Account Group' .
+  ENDLOOP.
+  SKIP.
+  ULINE.
+  WRITE :/ text-001 COLOR 5, lv_rec COLOR 5.
+ELSE.
+  MESSAGE e003(zsd_msg_cl).
+ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+********************************************************************************************************************
+*****sample application using Looping technique and Data structure concept with customer data
+*****declarations
+**DATA : BEGIN OF wa_kna1,
+**         kunnr TYPE kna1-kunnr,
+**         name1 TYPE kna1-name1,
+**         telf1 TYPE kna1-telf1,
+**         ort01 TYPE kna1-ort01,
+**         regio TYPE kna1-regio,
+**         stras TYPE kna1-stras,
+**         pstlz TYPE kna1-pstlz,
+**         land1 TYPE kna1-land1,
+**         spras TYPE kna1-spras,
+**         uwaer TYPE kna1-uwaer,
+**         ktokd TYPE kna1-ktokd,
+**       END OF wa_kna1,
+**       it_kna1 LIKE TABLE OF wa_kna1,
+**       lv_rec  TYPE i.
+**
+*****screen design
+**SELECT-OPTIONS : s_kunnr FOR wa_kna1-kunnr,
+**                 s_land1 FOR wa_kna1-land1 NO INTERVALS,
+**                 s_ktokd FOR wa_kna1-ktokd NO INTERVALS NO-EXTENSION.
+**
+*****fetch customer data from database table
+**SELECT kunnr
+**       name1
+**       telf1
+**       ort01
+**       regio
+**       stras
+**       pstlz
+**       land1
+**       spras
+**       uwaer
+**       ktokd FROM kna1
+**             INTO TABLE it_kna1
+**             WHERE kunnr IN s_kunnr
+**             AND   land1 IN s_land1
+**             AND   ktokd IN s_ktokd.
+**IF sy-subrc = 0.
+**
+*****check no. of records
+**  DESCRIBE TABLE it_kna1 LINES lv_rec.
+**
+*****provide column heading
+**  WRITE :/1 'Customer No.'  COLOR 5,
+**         15 'Name'          COLOR 5,
+**         40 'Telephone'     COLOR 5,
+**         55 'City'          COLOR 5,
+**         75 'State'         COLOR 5,
+**         85 'Street & H.No' COLOR 5,
+**        115 'PCode'         COLOR 5,
+**        125 'Country'       COLOR 5,
+**        135 'Language'      COLOR 5,
+**        150 'Currency'      COLOR 5,
+**        160 'Account Group' COLOR 5.
+**  SKIP.
+**
+*****display customer info
+**  LOOP AT it_kna1 INTO wa_kna1.
+**    WRITE :/ wa_kna1-kunnr UNDER 'Customer No.'  ,
+**             wa_kna1-name1 UNDER 'Name'          ,
+**             wa_kna1-telf1 UNDER 'Telephone'     ,
+**             wa_kna1-ort01 UNDER 'City'          ,
+**             wa_kna1-regio UNDER 'State'         ,
+**             wa_kna1-stras UNDER 'Street & H.No' ,
+**             wa_kna1-pstlz UNDER 'PCode'         ,
+**             wa_kna1-land1 UNDER 'Country'       ,
+**             wa_kna1-spras UNDER 'Language'      ,
+**             wa_kna1-uwaer UNDER 'Currency'      ,
+**             wa_kna1-ktokd UNDER 'Account Group' .
+**  ENDLOOP.
+**  SKIP.
+**  ULINE.
+**  WRITE :/ text-001 COLOR 5, lv_rec COLOR 5.
+**ELSE.
+**  MESSAGE e003(zsd_msg_cl).
+**ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+********************************************************************************************************************
+*****sample application using Looping technique and Data structure concept with customer data
+*****declarations
+**DATA : BEGIN OF wa_kna1,
+**         kunnr TYPE kna1-kunnr,
+**         name1 TYPE kna1-name1,
+**         telf1 TYPE kna1-telf1,
+**         ort01 TYPE kna1-ort01,
+**         regio TYPE kna1-regio,
+**         stras TYPE kna1-stras,
+**         pstlz TYPE kna1-pstlz,
+**         spras TYPE kna1-spras,
+**         uwaer TYPE kna1-uwaer,
+**         ktokd TYPE kna1-ktokd,
+**       END OF wa_kna1,
+**       it_kna1 LIKE TABLE OF wa_kna1.
+**
+*****fill data manually
+**wa_kna1-kunnr = '1000'.
+**wa_kna1-name1 = 'KABIR'.
+**wa_kna1-telf1 = '9848012345'.
+**wa_kna1-ort01 = 'Vijaywada'.
+**wa_kna1-regio = 'AP'.
+**wa_kna1-stras = '1-2-34, SHIVAJI NAGAR'.
+**wa_kna1-pstlz = '500097'.
+**wa_kna1-spras = 'EN'.
+**wa_kna1-uwaer = 'INR'.
+**wa_kna1-ktokd = '0001'.
+**APPEND wa_kna1 TO it_kna1.
+**CLEAR wa_kna1.
+**
+**wa_kna1-kunnr = '2000'.
+**wa_kna1-name1 = 'IRFAN'.
+**wa_kna1-telf1 = '9848099999'.
+***wa_kna1-ort01 = 'Nizamabad'.
+**wa_kna1-regio = 'TS'.
+**wa_kna1-stras = '2-3-45, AHMED NAGAR'.
+**wa_kna1-pstlz = '503001'.
+**wa_kna1-spras = 'EN'.
+**wa_kna1-uwaer = 'INR'.
+**wa_kna1-ktokd = '0002'.
+**APPEND wa_kna1 TO it_kna1.
+**CLEAR wa_kna1.
+**
+**wa_kna1-kunnr = '3000'.
+**wa_kna1-name1 = 'SAQLAIN'.
+***wa_kna1-telf1 = '9848077777'.
+**wa_kna1-ort01 = 'Vizag'.
+**wa_kna1-regio = 'AP'.
+**wa_kna1-stras = '3-4-56, BRIDAVAN COLONY'.
+**wa_kna1-pstlz = '500080'.
+**wa_kna1-spras = 'EN'.
+**wa_kna1-uwaer = 'INR'.
+**wa_kna1-ktokd = '0003'.
+**APPEND wa_kna1 TO it_kna1.
+**CLEAR wa_kna1.
+**
+**wa_kna1-kunnr = '4000'.
+**wa_kna1-name1 = 'BHANU'.
+**wa_kna1-telf1 = '9848055555'.
+**wa_kna1-ort01 = 'Cuddappa'.
+**wa_kna1-regio = 'AP'.
+**wa_kna1-stras = '4-5-67, VIJAYNAGAR COLONY'.
+***wa_kna1-pstlz = '500600'.
+**wa_kna1-spras = 'EN'.
+**wa_kna1-uwaer = 'INR'.
+**wa_kna1-ktokd = '0004'.
+**APPEND wa_kna1 TO it_kna1.
+**CLEAR wa_kna1.
+**
+**wa_kna1-kunnr = '5000'.
+**wa_kna1-name1 = 'MALIK'.
+**wa_kna1-telf1 = '9848033333'.
+**wa_kna1-ort01 = 'Nanded'.
+**wa_kna1-regio = 'MH'.
+**wa_kna1-stras = '9-8-76, DEGLOOR NAKA'.
+**wa_kna1-pstlz = '200007'.
+**wa_kna1-spras = 'EN'.
+**wa_kna1-uwaer = 'INR'.
+***wa_kna1-ktokd = '0001'.
+**APPEND wa_kna1 TO it_kna1.
+**CLEAR wa_kna1.
+**
+*****provide column heading
+**WRITE :/1 'Customer No.'  COLOR 5,
+**       15 'Name'          COLOR 5,
+**       40 'Telephone'     COLOR 5,
+**       55 'City'          COLOR 5,
+**       75 'State'         COLOR 5,
+**       85 'Street & H.No' COLOR 5,
+**      115 'PCode'         COLOR 5,
+**      125 'Language'      COLOR 5,
+**      135 'Currency'      COLOR 5,
+**      145 'Account Group' COLOR 5.
+**SKIP.
+**
+*****display customer info
+**LOOP AT it_kna1 INTO wa_kna1.
+**  WRITE :/ wa_kna1-kunnr UNDER 'Customer No.'  ,
+**           wa_kna1-name1 UNDER 'Name'          ,
+**           wa_kna1-telf1 UNDER 'Telephone'     ,
+**           wa_kna1-ort01 UNDER 'City'          ,
+**           wa_kna1-regio UNDER 'State'         ,
+**           wa_kna1-stras UNDER 'Street & H.No' ,
+**           wa_kna1-pstlz UNDER 'PCode'         ,
+**           wa_kna1-spras UNDER 'Language'      ,
+**           wa_kna1-uwaer UNDER 'Currency'      ,
+**           wa_kna1-ktokd UNDER 'Account Group' .
+**ENDLOOP.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+********************************************************************************************************************
+*****sample application using Looping technique and Data structure concept with customer data
+*****declarations
+**DATA : BEGIN OF wa_kna1,
+**         kunnr TYPE kna1-kunnr,
+**         name1 TYPE kna1-name1,
+**         telf1 TYPE kna1-telf1,
+**         ort01 TYPE kna1-ort01,
+**         regio TYPE kna1-regio,
+**         stras TYPE kna1-stras,
+**         pstlz TYPE kna1-pstlz,
+**         spras TYPE kna1-spras,
+**         uwaer TYPE kna1-uwaer,
+**         ktokd TYPE kna1-ktokd,
+**       END OF wa_kna1,
+**       it_kna1 LIKE TABLE OF wa_kna1.
+**
+*****fill data manually
+**wa_kna1-kunnr = '1000'.
+**wa_kna1-name1 = 'KABIR'.
+**wa_kna1-telf1 = '9848012345'.
+**wa_kna1-ort01 = 'Vijaywada'.
+**wa_kna1-regio = 'AP'.
+**wa_kna1-stras = '1-2-34, SHIVAJI NAGAR'.
+**wa_kna1-pstlz = '500097'.
+**wa_kna1-spras = 'EN'.
+**wa_kna1-uwaer = 'INR'.
+**wa_kna1-ktokd = '0001'.
+**APPEND wa_kna1 TO it_kna1.
+**
+**wa_kna1-kunnr = '2000'.
+**wa_kna1-name1 = 'IRFAN'.
+**wa_kna1-telf1 = '9848099999'.
+**wa_kna1-ort01 = 'Nizamabad'.
+**wa_kna1-regio = 'TS'.
+**wa_kna1-stras = '2-3-45, AHMED NAGAR'.
+**wa_kna1-pstlz = '503001'.
+**wa_kna1-spras = 'EN'.
+**wa_kna1-uwaer = 'INR'.
+**wa_kna1-ktokd = '0002'.
+**APPEND wa_kna1 TO it_kna1.
+**
+**wa_kna1-kunnr = '3000'.
+**wa_kna1-name1 = 'SAQLAIN'.
+**wa_kna1-telf1 = '9848077777'.
+**wa_kna1-ort01 = 'Vizag'.
+**wa_kna1-regio = 'AP'.
+**wa_kna1-stras = '3-4-56, BRIDAVAN COLONY'.
+**wa_kna1-pstlz = '500080'.
+**wa_kna1-spras = 'EN'.
+**wa_kna1-uwaer = 'INR'.
+**wa_kna1-ktokd = '0003'.
+**APPEND wa_kna1 TO it_kna1.
+**
+**wa_kna1-kunnr = '4000'.
+**wa_kna1-name1 = 'BHANU'.
+**wa_kna1-telf1 = '9848055555'.
+**wa_kna1-ort01 = 'Cuddappa'.
+**wa_kna1-regio = 'AP'.
+**wa_kna1-stras = '4-5-67, VIJAYNAGAR COLONY'.
+**wa_kna1-pstlz = '500600'.
+**wa_kna1-spras = 'EN'.
+**wa_kna1-uwaer = 'INR'.
+**wa_kna1-ktokd = '0004'.
+**APPEND wa_kna1 TO it_kna1.
+**
+**wa_kna1-kunnr = '5000'.
+**wa_kna1-name1 = 'MALIK'.
+**wa_kna1-telf1 = '9848033333'.
+**wa_kna1-ort01 = 'Nanded'.
+**wa_kna1-regio = 'MH'.
+**wa_kna1-stras = '9-8-76, DEGLOOR NAKA'.
+**wa_kna1-pstlz = '200007'.
+**wa_kna1-spras = 'EN'.
+**wa_kna1-uwaer = 'INR'.
+**wa_kna1-ktokd = '0001'.
+**APPEND wa_kna1 TO it_kna1.
+**
+*****display customer info
+**LOOP AT it_kna1 INTO wa_kna1.
+**  WRITE :/ wa_kna1-kunnr,
+**           wa_kna1-name1,
+**           wa_kna1-telf1,
+**           wa_kna1-ort01,
+**           wa_kna1-regio,
+**           wa_kna1-stras,
+**           wa_kna1-pstlz,
+**           wa_kna1-spras,
+**           wa_kna1-uwaer,
+**           wa_kna1-ktokd.
+**ENDLOOP.

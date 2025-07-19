@@ -1,0 +1,165 @@
+REPORT YMR_CUST_DATA_STRUCTERS NO STANDARD PAGE HEADING.
+
+data : BEGIN OF wa_lfa1,
+       lifnr type lfa1-lifnr,
+       name1 type lfa1-name1,
+       ort01 type lfa1-ort01,
+       land1 type lfa1-land1,
+       spras type lfa1-spras,
+       regio type lfa1-regio,
+       adrnr type lfa1-adrnr,
+       pstlz type lfa1-pstlz,
+       stras type lfa1-stras,
+
+    END OF wa_lfa1,
+    it_lfa1 like TABLE OF wa_lfa1.
+
+ wa_lfa1-lifnr = '001'.
+ wa_lfa1-name1 = 'Irfan'.
+ wa_lfa1-ort01 = ' '.
+ wa_lfa1-land1 = 'TS'.
+ wa_lfa1-spras = 'EN'.
+ wa_lfa1-regio = 'Tanali'.
+ wa_lfa1-adrnr = 'Bus Stand Road'.
+ wa_lfa1-pstlz = '50012'.
+ wa_lfa1-stras = 'Bhavanipuram'.
+ APPEND wa_lfa1 to it_lfa1.
+ CLEAR wa_lfa1.
+
+ wa_lfa1-lifnr = '002'.
+ wa_lfa1-name1 = 'Saqlain'.
+ wa_lfa1-ort01 = 'Khammam'.
+ wa_lfa1-land1 = 'TS'.
+ wa_lfa1-spras = ''.
+ wa_lfa1-regio = 'Tanali'.
+ wa_lfa1-adrnr = 'Bus Stand Road'.
+ wa_lfa1-pstlz = '50012'.
+ wa_lfa1-stras = 'Bhavanipuram'.
+  APPEND wa_lfa1 to it_lfa1.
+   CLEAR wa_lfa1.
+
+ wa_lfa1-lifnr = '003'.
+ wa_lfa1-name1 = 'Kabir'.
+ wa_lfa1-ort01 = 'Khammam'.
+ wa_lfa1-land1 = 'TS'.
+ wa_lfa1-spras = 'EN'.
+ wa_lfa1-regio = 'Tanali'.
+ wa_lfa1-adrnr = 'Bus Stand Road'.
+ wa_lfa1-pstlz = '50012'.
+ wa_lfa1-stras = ''.
+ APPEND wa_lfa1 to it_lfa1.
+  CLEAR wa_lfa1.
+
+  write :/   'VENDER NUM' COLOR 4,
+             50'NAME' COLOR 4,
+             60'CITY' COLOR 4,
+             70'COUNTRY' COLOR 4,
+             'LANGAGE' COLOR 4,
+             'REGIO' COLOR 4,
+             'ADDRES'COLOR 4,
+             'PSTLZ' COLOR 4,
+
+                'STREET'COLOR 4.
+
+ LOOP AT it_lfa1 into wa_lfa1 .
+   WRITE :/ wa_lfa1-lifnr ,
+           wa_lfa1-name1,
+           wa_lfa1-ort01,
+           wa_lfa1-land1,
+           wa_lfa1-spras,
+           wa_lfa1-regio,
+           wa_lfa1-adrnr,
+           wa_lfa1-pstlz,
+           wa_lfa1-stras.
+ ENDLOOP.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***data : BEGIN OF wa_lfa1,
+***       lifnr type lfa1-lifnr,
+***       name1 type lfa1-name1,
+***       ort01 type lfa1-ort01,
+***       land1 type lfa1-land1,
+***       spras type lfa1-spras,
+***       regio type lfa1-regio,
+***       adrnr type lfa1-adrnr,
+***       pstlz type lfa1-pstlz,
+***       stras type lfa1-stras,
+***
+***    END OF wa_lfa1,
+***    it_lfa1 like TABLE OF wa_lfa1.
+***
+*** wa_lfa1-lifnr = '001'.
+*** wa_lfa1-name1 = 'Irfan'.
+*** wa_lfa1-ort01 = 'Khammam'.
+*** wa_lfa1-land1 = 'TS'.
+*** wa_lfa1-spras = 'EN'.
+*** wa_lfa1-regio = 'Tanali'.
+*** wa_lfa1-adrnr = 'Bus Stand Road'.
+*** wa_lfa1-pstlz = '50012'.
+*** wa_lfa1-stras = 'Bhavanipuram'.
+*** APPEND wa_lfa1 to it_lfa1.
+***
+*** wa_lfa1-lifnr = '002'.
+*** wa_lfa1-name1 = 'Saqlain'.
+*** wa_lfa1-ort01 = 'Khammam'.
+*** wa_lfa1-land1 = 'TS'.
+*** wa_lfa1-spras = 'EN'.
+*** wa_lfa1-regio = 'Tanali'.
+*** wa_lfa1-adrnr = 'Bus Stand Road'.
+*** wa_lfa1-pstlz = '50012'.
+*** wa_lfa1-stras = 'Bhavanipuram'.
+***  APPEND wa_lfa1 to it_lfa1.
+***
+*** wa_lfa1-lifnr = '003'.
+*** wa_lfa1-name1 = 'Kabir'.
+*** wa_lfa1-ort01 = 'Khammam'.
+*** wa_lfa1-land1 = 'TS'.
+*** wa_lfa1-spras = 'EN'.
+*** wa_lfa1-regio = 'Tanali'.
+*** wa_lfa1-adrnr = 'Bus Stand Road'.
+*** wa_lfa1-pstlz = '50012'.
+*** wa_lfa1-stras = 'Bhavanipuram'.
+*** APPEND wa_lfa1 to it_lfa1.
+***
+*** LOOP AT it_lfa1 into wa_lfa1 .
+***   WRITE :/ wa_lfa1-lifnr,
+***           wa_lfa1-name1,
+***           wa_lfa1-ort01,
+***           wa_lfa1-land1,
+***           wa_lfa1-spras,
+***           wa_lfa1-regio,
+***           wa_lfa1-adrnr,
+***           wa_lfa1-pstlz,
+***           wa_lfa1-stras.
+*** ENDLOOP.

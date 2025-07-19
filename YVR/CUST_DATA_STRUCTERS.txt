@@ -1,0 +1,451 @@
+REPORT yvr_cust_data_structers NO STANDARD PAGE HEADING.
+
+**************************************************************
+********A smaple applaction using looping techniques and Data structers with Customer data
+********Declaration
+
+DATA : BEGIN OF wa_kna1,
+         kunnr TYPE kna1-kunnr,
+         name1 TYPE kna1-name1,
+         pstlz TYPE kna1-pstlz,
+         telf1 TYPE kna1-telf1,
+         ort01 TYPE kna1-ort01,
+         stras TYPE kna1-stras,
+         spras TYPE kna1-spras,
+         regio TYPE kna1-regio,
+         land1 TYPE kna1-land1,
+         uwaer TYPE kna1-uwaer,
+         ktokd TYPE kna1-ktokd,
+       END OF wa_kna1,
+       it_kna1 LIKE TABLE OF wa_kna1,
+       lv_rec  TYPE i.
+***************Screen desgin
+SELECT-OPTIONS : s_kunnr FOR wa_kna1-kunnr,
+                 s_land1 FOR wa_kna1-land1  NO INTERVALS,
+                 s_ktokd FOR wa_kna1-ktokd NO INTERVALS NO-EXTENSION.
+
+
+********fech data from databade table.
+SELECT  kunnr
+         name1
+         pstlz
+         ort01
+          telf1
+         stras
+         spras
+         regio
+         land1
+         uwaer
+         ktokd  FROM kna1
+              INTO CORRESPONDING FIELDS OF TABLE it_kna1
+              WHERE  kunnr IN s_kunnr
+              AND   land1  IN  s_land1
+              AND ktokd IN s_ktokd .
+IF sy-subrc = 0 .
+
+  DESCRIBE TABLE it_kna1 LINES lv_rec.
+  WRITE :/1   'Customer no' COLOR 6,
+               'name'     COLOR 5,
+          45  'postal code' COLOR 7,
+           60 'telephone'  COLOR 4,
+          76   'city '   COLOR 2 INVERSE ON,
+           90'street' COLOR 1 INVERSE OFF,
+           105'language' COLOR 7 INVERSE ON,
+           110'Region' COLOR  5,
+           125 'Country' COLOR 3,
+           140'currency ' COLOR 6 INVERSE ON,
+          150'account number' COLOR 3 .
+
+  SKIP.
+  ULINE.
+  LOOP AT it_kna1 INTO wa_kna1.
+
+    WRITE :/ wa_kna1-kunnr UNDER 'Customer no',
+    wa_kna1-name1 UNDER 'name' ,
+    wa_kna1-pstlz UNDER      'postal code'        ,
+    wa_kna1-telf1 UNDER   'telephone' ,
+    wa_kna1-ort01 UNDER'    city'        ,
+    wa_kna1-stras UNDER   'language'     ,
+    wa_kna1-spras UNDER   'street'        ,
+    wa_kna1-regio UNDER   'Region'        ,
+    wa_kna1-land1 UNDER    'land'       ,
+    wa_kna1-uwaer UNDER   'currency '        ,
+    wa_kna1-ktokd UNDER  'account number'         .
+
+  ENDLOOP.
+  SKIP.
+  ULINE.
+  WRITE :/ text-001 COLOR 5 , lv_rec COLOR 3.
+
+ELSE.
+  MESSAGE : e003(ysd_msg_cl).
+
+ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+******************************************************************
+************A smaple applaction using looping techniques and Data structers with Customer data
+************Declaration
+****
+****DATA : BEGIN OF wa_kna1,
+****         kunnr TYPE kna1-kunnr,
+****         name1 TYPE kna1-name1,
+****         pstlz TYPE kna1-pstlz,
+****         telf1 TYPE kna1-telf1,
+****         ort01 TYPE kna1-ort01,
+****         stras TYPE kna1-stras,
+****         spras TYPE kna1-spras,
+****         regio TYPE kna1-regio,
+****         land1 TYPE kna1-land1,
+****         uwaer TYPE kna1-uwaer,
+****         ktokd TYPE kna1-ktokd,
+****       END OF wa_kna1,
+****       it_kna1 LIKE TABLE OF wa_kna1,
+****       lv_rec  TYPE i.
+*******************Screen desgin
+****SELECT-OPTIONS : s_kunnr FOR wa_kna1-kunnr,
+****                 s_land1 FOR wa_kna1-land1  NO INTERVALS,
+****                 s_ktokd FOR wa_kna1-ktokd NO INTERVALS NO-EXTENSION.
+****
+****
+************fech data from databade table.
+****SELECT  kunnr
+****         name1
+****         pstlz
+****         telf1
+****         ort01
+****         stras
+****         spras
+****         regio
+****         land1
+****         uwaer
+****         ktokd  FROM kna1
+****              INTO TABLE it_kna1
+****              WHERE  kunnr IN s_kunnr
+****              AND   land1  IN  s_land1
+****              AND ktokd IN s_ktokd .
+****IF sy-subrc = 0 .
+****
+****  DESCRIBE TABLE it_kna1 LINES lv_rec.
+****  WRITE :/1   'Customer no' COLOR 6,
+****               'name'     COLOR 5,
+****          45  'postal code' COLOR 7,
+****           60 'telephone'  COLOR 4,
+****          76   'city '   COLOR 2 INVERSE ON,
+****           110'street' COLOR 1 INVERSE OFF,
+****           140'language' COLOR 7 INVERSE ON,
+****           146'Region' COLOR  5,
+****           149 'land' COLOR 3,
+****           150'currency ' COLOR 6 INVERSE ON,
+****          160'account number' COLOR 3 .
+****
+****  SKIP.
+****  ULINE.
+****  LOOP AT it_kna1 INTO wa_kna1.
+****
+****    WRITE :/ wa_kna1-kunnr UNDER 'Customer no',
+****    wa_kna1-name1 UNDER 'name' ,
+****    wa_kna1-pstlz UNDER      'postal code'        ,
+****    wa_kna1-telf1 UNDER   'telephone' ,
+****    wa_kna1-ort01 UNDER'    city'        ,
+****    wa_kna1-stras UNDER   'language'     ,
+****    wa_kna1-spras UNDER   'street'        ,
+****    wa_kna1-regio UNDER   'Region'        ,
+****    wa_kna1-land1 UNDER    'land'       ,
+****    wa_kna1-uwaer UNDER   'currency '        ,
+****    wa_kna1-ktokd UNDER  'account number'         .
+****
+****  ENDLOOP.
+****  SKIP.
+****  ULINE.
+****  WRITE :/ text-001 COLOR 5 , lv_rec COLOR 3.
+****
+****ELSE.
+****  MESSAGE : e003(ysd_msg_cl).
+****
+****ENDIF.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+********************************************************************
+**************A smaple applaction using looping techniques and Data structers with Customer data
+**************Declaration
+******
+******DATA : BEGIN OF wa_kna1,
+******         kunnr TYPE kna1-kunnr,
+******         name1 TYPE kna1-name1,
+******         pstlz TYPE kna1-pstlz,
+******         telf1 TYPE kna1-telf1,
+******         ort01 TYPE kna1-ort01,
+******         stras TYPE kna1-stras,
+******         spras TYPE kna1-spras,
+******         regio TYPE kna1-regio,
+******         uwaer TYPE kna1-uwaer,
+******         ktokd TYPE kna1-ktokd,
+******       END OF wa_kna1,
+******       it_kna1 LIKE TABLE OF wa_kna1.
+******
+**************fill data
+******
+******wa_kna1-kunnr = '0001'.
+******wa_kna1-name1 = 'KABIR'.
+******wa_kna1-pstlz = '520012'.
+******wa_kna1-telf1 = '9939202002'.
+******wa_kna1-ort01 = 'VIJAYAWADA'.
+******wa_kna1-stras = '76-2-15 , DAHRAG'.
+******wa_kna1-spras = 'EN'.
+******wa_kna1-regio = 'AP'.
+******wa_kna1-uwaer = ' '.
+******wa_kna1-ktokd = '001'.
+******APPEND wa_kna1 TO it_kna1.
+******CLEAR  wa_kna1.
+******
+******
+******wa_kna1-kunnr = '0002'.
+******wa_kna1-name1 = 'ALI'.
+******wa_kna1-pstlz = ' '.
+******wa_kna1-telf1 = '993982009'.
+******wa_kna1-ort01 = 'TENAIL'.
+******wa_kna1-stras = '69-09/143 BRTS '.
+******wa_kna1-spras = 'EN'.
+******wa_kna1-regio = 'AP'.
+******wa_kna1-uwaer = 'INR'.
+******wa_kna1-ktokd = '002'.
+******APPEND wa_kna1 TO it_kna1.
+******clear wa_kna1.
+******
+******
+******wa_kna1-kunnr = '0003'.
+******wa_kna1-name1 = 'SAQLAIN'.
+******wa_kna1-pstlz = '512012'.
+******wa_kna1-telf1 = '9931223342'.
+******wa_kna1-ort01 = 'GUNTUR'.
+******wa_kna1-stras = ' '.
+******wa_kna1-spras = 'EN'.
+******wa_kna1-regio = 'AP'.
+******wa_kna1-uwaer = 'INR'.
+******wa_kna1-ktokd = '003'.
+******APPEND wa_kna1 TO it_kna1.
+******clear wa_kna1.
+******
+******
+******WRITE :/1 'Customer no' COLOR 6,
+******        'name'     COLOR 5,
+******        45'postal code' COLOR 7,
+******         60 'telephone'  COLOR 4,
+******        76 'city '   COLOR 2 INVERSE ON,
+******         110'street' COLOR 1 INVERSE OFF,
+******         140'language' COLOR 7 INVERSE ON,
+******         145'Region' COLOR  5,
+******         155'currency ' COLOR 6 INVERSE ON,
+******        160'account number' COLOR 3 .
+******SKIP.
+******ULINE.
+******LOOP AT it_kna1 INTO wa_kna1.
+******
+******  WRITE :/ wa_kna1-kunnr,
+******  wa_kna1-name1,
+******  wa_kna1-pstlz,
+******  wa_kna1-telf1,
+******  wa_kna1-ort01,
+******  wa_kna1-stras,
+******  wa_kna1-spras,
+******  wa_kna1-regio,
+******  wa_kna1-uwaer,
+******  wa_kna1-ktokd.
+******
+******ENDLOOP.
+******
+******
+******
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*****************************************************************
+***********A smaple applaction using looping techniques and Data structers with Customer data
+***********Declaration
+***
+***DATA : BEGIN OF wa_kna1,
+***         kunnr TYPE kna1-kunnr,
+***         name1 TYPE kna1-name1,
+***         pstlz TYPE kna1-pstlz,
+***         telf1 TYPE kna1-telf1,
+***         ort01 TYPE kna1-ort01,
+***         stras TYPE kna1-stras,
+***         spras TYPE kna1-spras,
+***         regio TYPE kna1-regio,
+***         uwaer TYPE kna1-uwaer,
+***         ktokd TYPE kna1-ktokd,
+***       END OF wa_kna1,
+***       it_kna1 LIKE TABLE OF wa_kna1.
+***
+***********fill data
+***
+***wa_kna1-kunnr = '0001'.
+***wa_kna1-name1 = 'KABIR'.
+***wa_kna1-pstlz = '520012'.
+***wa_kna1-telf1 = '9939202002'.
+***wa_kna1-ort01 = 'VIJAYAWADA'.
+***wa_kna1-stras = '76-2-15 , DAHRAG'.
+***wa_kna1-spras = 'EN'.
+***wa_kna1-regio = 'AP'.
+***wa_kna1-uwaer = 'INR'.
+***wa_kna1-ktokd = '001'.
+***APPEND wa_kna1 TO it_kna1.
+***
+***
+***wa_kna1-kunnr = '0002'.
+***wa_kna1-name1 = 'ALI'.
+***wa_kna1-pstlz = '200012'.
+***wa_kna1-telf1 = '993982009'.
+***wa_kna1-ort01 = 'TENAIL'.
+***wa_kna1-stras = '69-09/143 BRTS '.
+***wa_kna1-spras = 'EN'.
+***wa_kna1-regio = 'AP'.
+***wa_kna1-uwaer = 'INR'.
+***wa_kna1-ktokd = '002'.
+***APPEND wa_kna1 to it_kna1.
+***
+***wa_kna1-kunnr = '0003'.
+***wa_kna1-name1 = 'SAQLAIN'.
+***wa_kna1-pstlz = '512012'.
+***wa_kna1-telf1 = '9931223342'.
+***wa_kna1-ort01 = 'GUNTUR'.
+***wa_kna1-stras = '112-12/4 , BHAVAINPURAM'.
+***wa_kna1-spras = 'EN'.
+***wa_kna1-regio = 'AP'.
+***wa_kna1-uwaer = 'INR'.
+***wa_kna1-ktokd = '003'.
+***APPEND wa_kna1 to it_kna1.
+***
+***LOOP AT it_kna1 INTO wa_kna1.
+***
+***  WRITE :/ wa_kna1-kunnr,
+***  wa_kna1-name1,
+***  wa_kna1-pstlz,
+***  wa_kna1-telf1,
+***  wa_kna1-ort01,
+***  wa_kna1-stras,
+***  wa_kna1-spras,
+***  wa_kna1-regio,
+***  wa_kna1-uwaer,
+***  wa_kna1-ktokd.
+***
+***ENDLOOP.

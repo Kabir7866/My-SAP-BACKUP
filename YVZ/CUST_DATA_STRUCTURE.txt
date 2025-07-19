@@ -1,0 +1,70 @@
+REPORT yvz_cust_data_structure NO STANDARD PAGE HEADING.
+
+************A sample applaction usin looping technique and Data Structure  with customer data
+****decleration
+
+DATA :   BEGIN OF wk_kna1,
+           kunnr TYPE kna1-kunnr,
+           name1 TYPE kna1-name1,
+           ort01 TYPE kna1-ort01,
+           land1 TYPE kna1-land1,
+           stras TYPE kna1-stras,
+           uwaer TYPE kna1-uwaer,
+           pstlz TYPE kna1-pstlz,
+           spars TYPE kna1-spras,
+           ktokd TYPE kna1-ktokd,
+         END OF wk_kna1,
+         it_kna1 LIKE TABLE OF wk_kna1.
+
+*******fill data
+wk_kna1-kunnr = '001'.
+wk_kna1-name1 = 'Kabir'.
+wk_kna1-ort01 = 'Vijayawada'.
+wk_kna1-land1 = 'AP'.
+wk_kna1-stras = 'Bhavainpuram'.
+wk_kna1-uwaer = 'INR'.
+wk_kna1-pstlz = '52001'.
+wk_kna1-spars = 'EN'.
+wk_kna1-ktokd = '0001'.
+APPEND wk_kna1 TO it_kna1.
+
+wk_kna1-kunnr = '002'.
+wk_kna1-name1 = 'Saqlain'.
+wk_kna1-ort01 = 'Vijayawada'.
+wk_kna1-land1 = 'Ts'.
+wk_kna1-stras = 'Dargah'.
+wk_kna1-uwaer = 'INR'.
+wk_kna1-pstlz = '520011'.
+wk_kna1-spars = 'EN'.
+wk_kna1-ktokd = '0002'.
+APPEND wk_kna1 TO it_kna1.
+
+wk_kna1-kunnr = '003'.
+wk_kna1-name1 = 'Malik'.
+wk_kna1-ort01 = 'Bhavan'.
+wk_kna1-land1 = 'Ts'.
+wk_kna1-stras = 'Dargah'.
+wk_kna1-uwaer = 'INR'.
+wk_kna1-pstlz = '520011'.
+wk_kna1-spars = 'EN'.
+wk_kna1-ktokd = '0003'.
+APPEND wk_kna1 TO it_kna1.
+
+
+
+
+
+********display
+LOOP AT it_kna1 INTO wk_kna1.
+  WRITE :/
+          wk_kna1-kunnr,
+          wk_kna1-name1,
+          wk_kna1-ort01,
+          wk_kna1-land1,
+          wk_kna1-stras,
+          wk_kna1-uwaer,
+          wk_kna1-pstlz,
+          wk_kna1-spars,
+          wk_kna1-ktokd.
+
+ENDLOOP.
